@@ -6,8 +6,92 @@
     <description>Recent content in Posts on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Aug 2016 07:53:33 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 09 Aug 2016 07:53:33 -0700</lastBuildDate>
     <atom:link href="http://chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Self Code Retreat</title>
+      <link>http://chischaschos.github.io/post/self-code-retreat-game-of-life/</link>
+      <pubDate>Tue, 09 Aug 2016 07:53:33 -0700</pubDate>
+      
+      <guid>http://chischaschos.github.io/post/self-code-retreat-game-of-life/</guid>
+      <description>
+
+&lt;h2 id=&#34;motivation:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been lucky to participate in many &lt;a href=&#34;http://coderetreat.org/&#34;&gt;Coderetreats&lt;/a&gt; and I want to do a small coding practice that keeps the same feeling.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-a-code-retreat:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;What is a Code retreat?&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://coderetreat.org/about&#34;&gt;Coderetreat site&lt;/a&gt; says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A Code retreat day is structured in two main parts:&lt;/p&gt;
+
+&lt;h3 id=&#34;setting-context:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Setting context&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;A previously chosen exercise is explained to the audience, most of the times the chosen exercise is &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&#34;&gt;Conway&amp;rsquo;s Game of Life&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;There will be between 4 and 6 sessions, each session will be 45min long.&lt;/li&gt;
+&lt;li&gt;Each session has an &lt;a href=&#34;http://coderetreat.org/facilitating/activity-catalog&#34;&gt;activity&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Each Activity teaches something specific.&lt;/li&gt;
+&lt;li&gt;People has to &lt;a href=&#34;https://en.wikipedia.org/wiki/Pair_programming&#34;&gt;pair program&lt;/a&gt;, so everyone finds a partner.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;iterating-sessions:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Iterating sessions&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Session starts, pick your favorite language and start coding, follow the Activity constraints if any.&lt;/li&gt;
+&lt;li&gt;45 min later the session ends, you MUST DELETE YOUR CODE.&lt;/li&gt;
+&lt;li&gt;Retrospective time.&lt;/li&gt;
+&lt;li&gt;Rest 10-15 min.&lt;/li&gt;
+&lt;li&gt;Switch pair, pick another activity and start another session.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;what-is-the-best-about-a-code-retreat:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;What is the best about a Code retreat?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Repetition&lt;/li&gt;
+&lt;li&gt;Retrospection&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;how-to-mimic-the-most-important-things:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;How to mimic the most important things?&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Define the session duration (I like 25-30 min).&lt;/li&gt;
+&lt;li&gt;Pick a restriction.&lt;/li&gt;
+&lt;li&gt;Pick an exercise.&lt;/li&gt;
+&lt;li&gt;At the end of the session commit your code and tag it.&lt;/li&gt;
+&lt;li&gt;Rest, I like to take 5-10 min.&lt;/li&gt;
+&lt;li&gt;Start a new session from scratch&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;examples-to-try:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Examples to try&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/gilded_rose_kata&#34;&gt;https://github.com/chischaschos/gilded_rose_kata&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/el_gato&#34;&gt;https://github.com/chischaschos/el_gato&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/bare_gato&#34;&gt;https://github.com/chischaschos/bare_gato&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/tic-tac-toe-pairing-with-pollo&#34;&gt;https://github.com/chischaschos/tic-tac-toe-pairing-with-pollo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/ruby-game_of_life&#34;&gt;https://github.com/chischaschos/ruby-game_of_life&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/ruby-bowling_game&#34;&gt;https://github.com/chischaschos/ruby-bowling_game&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/toy-robot-simulator-kata&#34;&gt;https://github.com/chischaschos/toy-robot-simulator-kata&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/go-bankocr-kata&#34;&gt;https://github.com/chischaschos/go-bankocr-kata&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/bank_ocr-ruby-kata&#34;&gt;https://github.com/chischaschos/bank_ocr-ruby-kata&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;todo:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;TODO:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clean up examples README.md files, or maybe group all katas in a single repo.&lt;/li&gt;
+&lt;li&gt;Provide examples of restrictions I&amp;rsquo;ve liked.&lt;/li&gt;
+&lt;li&gt;Try &lt;a href=&#34;https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf&#34;&gt;Jeff Bay&amp;rsquo;s Object Calisthenics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Resque and Sidekiq as of August 2016</title>
@@ -60,6 +144,12 @@
 &lt;li&gt;&lt;a href=&#34;https://mentalmodelsblog.wordpress.com/&#34;&gt;https://mentalmodelsblog.wordpress.com/&lt;/a&gt;
 &lt;a href=&#34;http://mentalmodels.princeton.edu/about/what-are-mental-models/&#34;&gt;http://mentalmodels.princeton.edu/about/what-are-mental-models/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;todo:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;TODO&lt;/h2&gt;
+
+&lt;p&gt;Review:
+- &lt;a href=&#34;https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537&#34;&gt;https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537&lt;/a&gt;
+- &lt;a href=&#34;http://www.thegeekstuff.com/2013/11/linux-process-and-threads/&#34;&gt;http://www.thegeekstuff.com/2013/11/linux-process-and-threads/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -6,8 +6,85 @@
     <description>Recent content on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Aug 2016 14:47:00 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 23 Aug 2016 08:39:20 -0700</lastBuildDate>
     <atom:link href="http://chischaschos.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Preferred learning resources around Software Development</title>
+      <link>http://chischaschos.github.io/post/preferred-learning-resources-around-software-development/</link>
+      <pubDate>Tue, 23 Aug 2016 08:39:20 -0700</pubDate>
+      
+      <guid>http://chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
+      <description>
+
+&lt;h2 id=&#34;motivation:59f22d5148e87060e8fa8910ab07ff1a&#34;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;Share my preferences.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Books&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.poodr.com/&#34;&gt;Practical Object Oriented Design in Ruby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445&#34;&gt;Agile Software Development, Principles, Patterns, and Practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://shop.oreilly.com/product/9780596008673.do&#34;&gt;Head First Object-Oriented Analysis and Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34;&gt;Clean Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073&#34;&gt;The Clean Coder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pragprog.com/book/cfcar2/the-passionate-programmer&#34;&gt;The Passionate Programmer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://theseniorsoftwareengineer.com/&#34;&gt;The Senior Software Engineer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.manning.com/books/soft-skills&#34;&gt;Soft Skills&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pragprog.com/book/dnvim/practical-vim&#34;&gt;Practical Vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&#34;&gt;Domain Driven Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Patterns-Enterprise-Application-Architecture-Martin/dp/0321127420&#34;&gt;Patterns of Enterprise Application Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://shop.oreilly.com/product/9780596007126.do&#34;&gt;Head First Design Patterns&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Refactoring-Ruby-Addison-Wesley-Professional/dp/0321984137&#34;&gt;Refactoring: Ruby Edition&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052&#34;&gt;Working Effectively With Legacy Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Practices&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://exercism.io/&#34;&gt;exercism.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://coderetreat.org/&#34;&gt;Coderetreats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Code Katas&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://vim-adventures.com/&#34;&gt;Vim Adventures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.vimgolf.com/&#34;&gt;Vim Golf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.typing.com&#34;&gt;Learn touch typing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hackerrank.com/&#34;&gt;Hacker Rank&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Job Search&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.tiobe.com/tiobe-index/&#34;&gt;TIOBE index&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jobs offers per site&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Movies&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.imdb.com/title/tt5818010/&#34;&gt;The Secret Rules of Modern Living: Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.travellingsalesmanmovie.com/&#34;&gt;Travelling Salesman&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://buy.indiegamethemovie.com/&#34;&gt;Indie Game The Movie&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Paid resources&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;safaribooksonline.com&#34;&gt;Safari books&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://upcase.com/&#34;&gt;Upcase&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;todo:59f22d5148e87060e8fa8910ab07ff1a&#34;&gt;TODO&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add more resources&lt;/li&gt;
+&lt;li&gt;Add brief description of each resource and say why I like it.&lt;/li&gt;
+&lt;li&gt;Maybe create some learning paths?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Self Code Retreat</title>

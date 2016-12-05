@@ -6,8 +6,127 @@
     <description>Recent content on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Aug 2016 08:39:20 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 27 Sep 2016 11:11:11 -0700</lastBuildDate>
     <atom:link href="http://chischaschos.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Debugging guard-jasmine error</title>
+      <link>http://chischaschos.github.io/post/debugging-guard-jasmine-error/</link>
+      <pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate>
+      
+      <guid>http://chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
+      <description>
+
+&lt;h2 id=&#34;motivation:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m working on a project that uses &lt;code&gt;guard-jasmine (1.19.2)&lt;/code&gt;. For a number reasons I can&amp;rsquo;t upgrade it.&lt;/p&gt;
+
+&lt;p&gt;This morning the test headless test suite started failing with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;➜  bundle exec guard-jasmine
+Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off).
+Waiting for Jasmine test runner at http://localhost:58583/jasmine
+Run all Jasmine suites
+Run Jasmine suite at http://localhost:58583/jasmine
+2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead.
+An error occurred in the Jasmine runner
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If I run the tests in the browser they are fine, but when running the headless suite it was failing.&lt;/p&gt;
+
+&lt;p&gt;I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed until I found the error.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-bug-hunt:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;The bug hunt&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Can I execute the same command and get a more verbose output?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;  ➜  bundle exec guard-jasmine --verbose
+Guard::Jasmine starts Unicorn spec server on port 58749 in test environment (coverage off).
+I, [2016-09-27T22:06:51.953642 #3742]  INFO -- : listening on addr=0.0.0.0:58749 fd=11
+I, [2016-09-27T22:06:51.953792 #3742]  INFO -- : worker=0 spawning...
+I, [2016-09-27T22:06:51.954728 #3742]  INFO -- : master process ready
+I, [2016-09-27T22:06:51.955798 #3743]  INFO -- : worker=0 spawned pid=3743
+I, [2016-09-27T22:06:51.956231 #3743]  INFO -- : Refreshing Gem list
+Waiting for Jasmine test runner at http://localhost:58749/jasmine
+** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=3743
+OpenIdAuthentication.store is nil. Using in-memory store.
+I, [2016-09-27T22:06:57.459446 #3743]  INFO -- : worker=0 ready
+Run all Jasmine suites
+Run Jasmine suite at http://localhost:58749/jasmine
+2016-09-27 22:06:59.227 phantomjs[3793:3213439] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead.
+An error occurred in the Jasmine runner
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Well yes there is a verbose option but didn&amp;rsquo;t get any extra details.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Can I set a debugger and see what is going on?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Well yes but where?. OK so the entry point is the command &lt;code&gt;guard-jasmine&lt;/code&gt; so:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3&#34;&gt;https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Means it calls &lt;code&gt;Guard::Jasmine::CLI.start&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The CLI is a &lt;a href=&#34;http://whatisthor.com/&#34;&gt;Thor&lt;/a&gt; implementation, which ends up calling:&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216&#34;&gt;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Meaning it calls &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L220&#34;&gt;::Guard::Jasmine::Server.start(runner_options)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;So it first starts a &lt;em&gt;server&lt;/em&gt; and then runs a &lt;em&gt;command&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;So here &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L44&#34;&gt;::Guard::Jasmine::Runner.run(paths, runner_options)&lt;/a&gt; and then &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L109&#34;&gt;run_jasmine_spec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I put a debugger in &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L108&#34;&gt;line 108&lt;/a&gt; and then checked the command that is was executing:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;
+/usr/local/bin/phantomjs /Users/blabla/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/guard-jasmine-1.19.2/lib/guard/jasmine/phantomjs/guard-jasmine.js \&amp;quot;http://localhost:59100/jasmine\&amp;quot; 30000000 always true failure failure false false &#39;&#39;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So the command it executes has the form:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;phantomjs-binary&lt;/strong&gt; &lt;strong&gt;guard-jasmine-js-script&lt;/strong&gt; &lt;strong&gt;guard-jasmine-js-arguments&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And the guard-jasmine arguments are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;instance-running-jasminerice&lt;/strong&gt; &lt;strong&gt;more-args-to-guard-jasmine-script&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now I can run the same command, but I got the same error, LOL, but at least now I see how test runner works.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Before keep digging, are you sure your JS does not contain any errors?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let me pass my JS to node and let it do a syntax check:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```
+wget -qO-  http://localhost:3000/assets/app.js | node
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now let me pass it through a linter:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```
+wget -qO-  http://localhost:3000/assets/app.js | eslint --stdin
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Wait, doesn&amp;rsquo;t rails have a way of debugging your assets?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Ouch, maybe I should&amp;rsquo;ve started there, let me turn it on and see what it says:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;config.assets.debug = true
+    ```&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Preferred learning resources around Software Development</title>

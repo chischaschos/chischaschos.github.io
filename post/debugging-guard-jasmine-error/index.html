@@ -86,7 +86,7 @@
 
 <h2 id="motivation:250b2125bf43866cb0619e8c7ffb8062">Motivation</h2>
 
-<p>I&rsquo;m working on a project that uses <code>guard-jasmine (1.19.2)</code>. For a number reasons I can&rsquo;t upgrade it.</p>
+<p>I&rsquo;m working on a project that uses <code>guard-jasmine (1.19.2)</code>. For a number reasons I can&rsquo;t upgrade it yet.</p>
 
 <p>This morning the test headless test suite started failing with:</p>
 
@@ -99,15 +99,16 @@ Run Jasmine suite at http://localhost:58583/jasmine
 An error occurred in the Jasmine runner
 </code></pre>
 
-<p>If I run the tests in the browser they are fine, but when running the headless suite it was failing.</p>
+<p>It is hard to notice but the actual error is the last line: <strong>An error ocurred in the Jasmine runner</strong>. If I run the tests in the browser they are fine,
+only the the headless suite is failing.</p>
 
-<p>I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed until I found the error.</p>
+<p>I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed to find the error.</p>
 
 <h2 id="the-bug-hunt:250b2125bf43866cb0619e8c7ffb8062">The bug hunt</h2>
 
-<ol>
-<li>Can I execute the same command and get a more verbose output?</li>
-</ol>
+<p>I started asking myself a bunch of questions such as:</p>
+
+<h3 id="q1-can-i-execute-the-same-command-and-get-a-more-verbose-output:250b2125bf43866cb0619e8c7ffb8062">Q1. Can I execute the same command and get a more verbose output?</h3>
 
 <pre><code>  ➜  bundle exec guard-jasmine --verbose
 Guard::Jasmine starts Unicorn spec server on port 58749 in test environment (coverage off).
@@ -126,13 +127,11 @@ Run Jasmine suite at http://localhost:58749/jasmine
 An error occurred in the Jasmine runner
 </code></pre>
 
-<p>Well yes there is a verbose option but didn&rsquo;t get any extra details.</p>
+<p><strong>A1:</strong> Well yes there is a verbose option, but it didn&rsquo;t things clearer for me.</p>
 
-<ol>
-<li>Can I set a debugger and see what is going on?</li>
-</ol>
+<h3 id="q2-can-i-set-a-debugger-and-see-what-is-going-on:250b2125bf43866cb0619e8c7ffb8062">Q2. Can I set a debugger and see what is going on?</h3>
 
-<p>Well yes but where?. OK so the entry point is the command <code>guard-jasmine</code> so:</p>
+<p><strong>A2:</strong> Well yes but where?. OK so the entry point is the command <code>guard-jasmine</code> so:</p>
 
 <ul>
 <li><a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3">https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3</a></li>
@@ -145,53 +144,68 @@ An error occurred in the Jasmine runner
 <li>I put a debugger in <a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L108">line 108</a> and then checked the command that is was executing:</li>
 </ul>
 
-<p><code>
-/usr/local/bin/phantomjs /Users/blabla/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/guard-jasmine-1.19.2/lib/guard/jasmine/phantomjs/guard-jasmine.js \&quot;http://localhost:59100/jasmine\&quot; 30000000 always true failure failure false false ''
-</code></p>
+<pre><code>/usr/local/bin/phantomjs /Users/blabla/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/guard-jasmine-1.19.2/lib/guard/jasmine/phantomjs/guard-jasmine.js \&quot;http://localhost:59100/jasmine\&quot; 30000000 always true failure failure false false ''
+</code></pre>
 
 <p>So the command it executes has the form:</p>
 
 <ul>
-<li><strong>phantomjs-binary</strong> <strong>guard-jasmine-js-script</strong> <strong>guard-jasmine-js-arguments</strong></li>
+<li><em>phantomjs-binary</em> <em>guard-jasmine-js-script</em> <em>guard-jasmine-js-arguments</em></li>
 </ul>
 
 <p>And the guard-jasmine arguments are:</p>
 
 <ul>
-<li><strong>instance-running-jasminerice</strong> <strong>more-args-to-guard-jasmine-script</strong></li>
+<li><em>instance-running-jasminerice</em> <em>more-args-to-guard-jasmine-script</em></li>
 </ul>
 
-<p>Now I can run the same command, but I got the same error, LOL, but at least now I see how test runner works.</p>
+<p><strong>A2 Extended answer:</strong> Now I am able to run the same command without invoking the gem executable (copy paste it from the debugger), the problem is that I get the same error.
+The nice thing is that I learned how test runner works.</p>
 
-<ol>
-<li>Before keep digging, are you sure your JS does not contain any errors?</li>
-</ol>
+<h3 id="q3-before-keep-digging-are-you-sure-your-js-does-not-contain-any-errors:250b2125bf43866cb0619e8c7ffb8062">Q3: Before keep digging, are you sure your JS does not contain any errors?</h3>
 
 <p>Let me pass my JS to node and let it do a syntax check:</p>
 
-<pre><code>```
-wget -qO-  http://localhost:3000/assets/app.js | node
-```
+<pre><code>wget -qO-  http://localhost:3000/assets/app.js | node
+
+  Namespace('utils');
+  ^
+
+ReferenceError: Namespace is not defined
+    at [stdin]:2:3
+    at [stdin]:42:3
+    at ContextifyScript.Script.runInThisContext (vm.js:26:33)
+    at Object.exports.runInThisContext (vm.js:79:17)
+    at Object.&lt;anonymous&gt; ([stdin]-wrapper:6:22)
+    at Module._compile (module.js:571:32)
+    at Immediate.&lt;anonymous&gt; (bootstrap_node.js:383:29)
+    at runCallback (timers.js:649:20)
+    at tryOnImmediate (timers.js:622:5)
+    at processImmediate [as _immediateCallback] (timers.js:594:5)
 </code></pre>
 
-<p>Now let me pass it through a linter:</p>
+<p>I don&rsquo;t thinkg this is helpful at all. Instead I&rsquo;m gonna pass it through a linter using the default configurations:</p>
 
-<pre><code>```
-wget -qO-  http://localhost:3000/assets/app.js | eslint --stdin
-```
+<pre><code>wget -qO-  http://localhost:3000/app/assets/app.js | eslint --stdin --no-eslintrc
+
+&lt;text&gt;
+  1222:35  error  Parsing error: Unexpected token =
+
+✖ 1 problem (1 error, 0 warnings)
 </code></pre>
 
-<ol>
-<li>Wait, doesn&rsquo;t rails have a way of debugging your assets?</li>
-</ol>
+<p>This looks nicer so now let&rsquo;s see what that line has:</p>
 
-<p>Ouch, maybe I should&rsquo;ve started there, let me turn it on and see what it says:</p>
-
-<pre><code>```
+<pre><code>wget -qO-  http://localhost:3000/app/assets/app.js | sed -n '1222p'
+  initialize: function(attributes = {}) {
 </code></pre>
 
-<p>config.assets.debug = true
-    ```</p>
+<p><strong>A3:</strong> I&rsquo;m using a default argument. Which worked fine in the browser, but not in my old headless test suite.</p>
+
+<h2 id="solution:250b2125bf43866cb0619e8c7ffb8062">Solution</h2>
+
+<p>I didn&rsquo;t need a default argument right there. So I simply removed it. Anyways I really need to upgrade my test
+suite.</p>
 
             </div>
         </div>

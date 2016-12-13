@@ -6,18 +6,8 @@
     <description>Recent content in Posts on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Dec 2016 13:40:52 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Sep 2016 11:11:11 -0700</lastBuildDate>
     <atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>removing unused env variables</title>
-      <link>//chischaschos.github.io/post/removing-unused-env-variables/</link>
-      <pubDate>Mon, 05 Dec 2016 13:40:52 -0800</pubDate>
-      
-      <guid>//chischaschos.github.io/post/removing-unused-env-variables/</guid>
-      <description>&lt;p&gt;ag &amp;ndash;nonumber &amp;ndash;nofilename &amp;ndash;only-matching &amp;lsquo;ENV[.+]&amp;rsquo;|sort|uniq -c|sort&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Debugging guard-jasmine error</title>

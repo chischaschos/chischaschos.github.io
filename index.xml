@@ -2,19 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chischaschos rocks</title>
-    <link>http://chischaschos.github.io/</link>
+    <link>//chischaschos.github.io/</link>
     <description>Recent content on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Sep 2016 11:11:11 -0700</lastBuildDate>
-    <atom:link href="http://chischaschos.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Dec 2016 13:40:52 -0800</lastBuildDate>
+    <atom:link href="//chischaschos.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>removing unused env variables</title>
+      <link>//chischaschos.github.io/post/removing-unused-env-variables/</link>
+      <pubDate>Mon, 05 Dec 2016 13:40:52 -0800</pubDate>
+      
+      <guid>//chischaschos.github.io/post/removing-unused-env-variables/</guid>
+      <description>&lt;p&gt;ag &amp;ndash;nonumber &amp;ndash;nofilename &amp;ndash;only-matching &amp;lsquo;ENV[.+]&amp;rsquo;|sort|uniq -c|sort&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Debugging guard-jasmine error</title>
-      <link>http://chischaschos.github.io/post/debugging-guard-jasmine-error/</link>
+      <link>//chischaschos.github.io/post/debugging-guard-jasmine-error/</link>
       <pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate>
       
-      <guid>http://chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
+      <guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
       <description>
 
 &lt;h2 id=&#34;motivation:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Motivation&lt;/h2&gt;
@@ -144,10 +154,10 @@ suite.&lt;/p&gt;
     
     <item>
       <title>Preferred learning resources around Software Development</title>
-      <link>http://chischaschos.github.io/post/preferred-learning-resources-around-software-development/</link>
+      <link>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</link>
       <pubDate>Tue, 23 Aug 2016 08:39:20 -0700</pubDate>
       
-      <guid>http://chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
+      <guid>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
       <description>
 
 &lt;h2 id=&#34;motivation:59f22d5148e87060e8fa8910ab07ff1a&#34;&gt;Motivation&lt;/h2&gt;
@@ -221,10 +231,10 @@ suite.&lt;/p&gt;
     
     <item>
       <title>Self Code Retreat</title>
-      <link>http://chischaschos.github.io/post/self-code-retreat-game-of-life/</link>
+      <link>//chischaschos.github.io/post/self-code-retreat-game-of-life/</link>
       <pubDate>Mon, 22 Aug 2016 14:47:00 -0700</pubDate>
       
-      <guid>http://chischaschos.github.io/post/self-code-retreat-game-of-life/</guid>
+      <guid>//chischaschos.github.io/post/self-code-retreat-game-of-life/</guid>
       <description>
 
 &lt;h2 id=&#34;motivation:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Motivation&lt;/h2&gt;
@@ -305,10 +315,10 @@ suite.&lt;/p&gt;
     
     <item>
       <title>about</title>
-      <link>http://chischaschos.github.io/about/</link>
+      <link>//chischaschos.github.io/about/</link>
       <pubDate>Mon, 08 Aug 2016 20:18:44 -0600</pubDate>
       
-      <guid>http://chischaschos.github.io/about/</guid>
+      <guid>//chischaschos.github.io/about/</guid>
       <description>
 
 &lt;h1 id=&#34;what-i-m-doing-now:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;What I’m doing now&lt;/h1&gt;
@@ -346,10 +356,10 @@ investing my time in:&lt;/p&gt;
     
     <item>
       <title>Resque and Sidekiq as of August 2016</title>
-      <link>http://chischaschos.github.io/post/resque-and-sidekiq/</link>
+      <link>//chischaschos.github.io/post/resque-and-sidekiq/</link>
       <pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate>
       
-      <guid>http://chischaschos.github.io/post/resque-and-sidekiq/</guid>
+      <guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid>
       <description>
 
 &lt;h2 id=&#34;document-status:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;Document status&lt;/h2&gt;
@@ -406,10 +416,10 @@ investing my time in:&lt;/p&gt;
     
     <item>
       <title>RSpec and the Four Phase Tests</title>
-      <link>http://chischaschos.github.io/post/rspec-antipatterns/</link>
+      <link>//chischaschos.github.io/post/rspec-antipatterns/</link>
       <pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate>
       
-      <guid>http://chischaschos.github.io/post/rspec-antipatterns/</guid>
+      <guid>//chischaschos.github.io/post/rspec-antipatterns/</guid>
       <description>
 
 &lt;h2 id=&#34;document-status:95e794e4f534c70cfe4502d04b897ee9&#34;&gt;Document status&lt;/h2&gt;

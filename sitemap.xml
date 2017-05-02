@@ -2,9 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>//chischaschos.github.io/</loc>
-    <lastmod>2016-09-27T11:11:11-07:00</lastmod>
-    <priority>0</priority>
+    <loc>//chischaschos.github.io/post/the-quest-to-learn-graphql/</loc>
+    <lastmod>2017-05-02T13:00:00-07:00</lastmod>
   </url>
   
   <url>
@@ -35,6 +34,33 @@
   <url>
     <loc>//chischaschos.github.io/post/rspec-antipatterns/</loc>
     <lastmod>2016-02-07T20:49:58-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//chischaschos.github.io/flashcards/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//chischaschos.github.io/post/</loc>
+    <lastmod>2017-05-02T13:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//chischaschos.github.io/talks/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//chischaschos.github.io/thoughts/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//chischaschos.github.io/</loc>
+    <lastmod>2017-05-02T13:00:00-07:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

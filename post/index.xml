@@ -6,8 +6,23 @@
     <description>Recent content in Posts on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Sep 2016 11:11:11 -0700</lastBuildDate>
-    <atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 May 2017 13:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Quest to learn GraphQL</title>
+      <link>//chischaschos.github.io/post/the-quest-to-learn-graphql/</link>
+      <pubDate>Tue, 02 May 2017 13:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid>
+      <description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
+What is graphql  http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve  There is graphql in different languages such as golang, nodejs and ruby among others.
+ Ruby
+ https://github.com/rmosolgo/graphql-ruby https://github.com/Shopify/graphql-batch  Nodejs
+ Join Monster video Join Monster repo DataLoader   Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
+    </item>
     
     <item>
       <title>Debugging guard-jasmine error</title>
@@ -15,131 +30,9 @@
       <pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
-      <description>
-
-&lt;h2 id=&#34;motivation:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;m working on a project that uses &lt;code&gt;guard-jasmine (1.19.2)&lt;/code&gt;. For a number reasons I can&amp;rsquo;t upgrade it yet.&lt;/p&gt;
-
-&lt;p&gt;This morning the test headless test suite started failing with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;➜  bundle exec guard-jasmine
-Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off).
-Waiting for Jasmine test runner at http://localhost:58583/jasmine
-Run all Jasmine suites
-Run Jasmine suite at http://localhost:58583/jasmine
-2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead.
-An error occurred in the Jasmine runner
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It is hard to notice but the actual error is the last line: &lt;strong&gt;An error ocurred in the Jasmine runner&lt;/strong&gt;. If I run the tests in the browser they are fine,
-only the the headless suite is failing.&lt;/p&gt;
-
-&lt;p&gt;I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed to find the error.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-bug-hunt:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;The bug hunt&lt;/h2&gt;
-
-&lt;p&gt;I started asking myself a bunch of questions such as:&lt;/p&gt;
-
-&lt;h3 id=&#34;q1-can-i-execute-the-same-command-and-get-a-more-verbose-output:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Q1. Can I execute the same command and get a more verbose output?&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;  ➜  bundle exec guard-jasmine --verbose
-Guard::Jasmine starts Unicorn spec server on port 58749 in test environment (coverage off).
-I, [2016-09-27T22:06:51.953642 #3742]  INFO -- : listening on addr=0.0.0.0:58749 fd=11
-I, [2016-09-27T22:06:51.953792 #3742]  INFO -- : worker=0 spawning...
-I, [2016-09-27T22:06:51.954728 #3742]  INFO -- : master process ready
-I, [2016-09-27T22:06:51.955798 #3743]  INFO -- : worker=0 spawned pid=3743
-I, [2016-09-27T22:06:51.956231 #3743]  INFO -- : Refreshing Gem list
-Waiting for Jasmine test runner at http://localhost:58749/jasmine
-** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=3743
-OpenIdAuthentication.store is nil. Using in-memory store.
-I, [2016-09-27T22:06:57.459446 #3743]  INFO -- : worker=0 ready
-Run all Jasmine suites
-Run Jasmine suite at http://localhost:58749/jasmine
-2016-09-27 22:06:59.227 phantomjs[3793:3213439] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead.
-An error occurred in the Jasmine runner
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;A1:&lt;/strong&gt; Well yes there is a verbose option, but it didn&amp;rsquo;t things clearer for me.&lt;/p&gt;
-
-&lt;h3 id=&#34;q2-can-i-set-a-debugger-and-see-what-is-going-on:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Q2. Can I set a debugger and see what is going on?&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;A2:&lt;/strong&gt; Well yes but where?. OK so the entry point is the command &lt;code&gt;guard-jasmine&lt;/code&gt; so:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3&#34;&gt;https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Means it calls &lt;code&gt;Guard::Jasmine::CLI.start&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;The CLI is a &lt;a href=&#34;http://whatisthor.com/&#34;&gt;Thor&lt;/a&gt; implementation, which ends up calling:&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216&#34;&gt;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Meaning it calls &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L220&#34;&gt;::Guard::Jasmine::Server.start(runner_options)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;So it first starts a &lt;em&gt;server&lt;/em&gt; and then runs a &lt;em&gt;command&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;So here &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L44&#34;&gt;::Guard::Jasmine::Runner.run(paths, runner_options)&lt;/a&gt; and then &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L109&#34;&gt;run_jasmine_spec&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;I put a debugger in &lt;a href=&#34;https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L108&#34;&gt;line 108&lt;/a&gt; and then checked the command that is was executing:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;/usr/local/bin/phantomjs /Users/blabla/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/guard-jasmine-1.19.2/lib/guard/jasmine/phantomjs/guard-jasmine.js \&amp;quot;http://localhost:59100/jasmine\&amp;quot; 30000000 always true failure failure false false &#39;&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So the command it executes has the form:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;phantomjs-binary&lt;/em&gt; &lt;em&gt;guard-jasmine-js-script&lt;/em&gt; &lt;em&gt;guard-jasmine-js-arguments&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And the guard-jasmine arguments are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;instance-running-jasminerice&lt;/em&gt; &lt;em&gt;more-args-to-guard-jasmine-script&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;A2 Extended answer:&lt;/strong&gt; Now I am able to run the same command without invoking the gem executable (copy paste it from the debugger), the problem is that I get the same error.
-The nice thing is that I learned how test runner works.&lt;/p&gt;
-
-&lt;h3 id=&#34;q3-before-keep-digging-are-you-sure-your-js-does-not-contain-any-errors:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Q3: Before keep digging, are you sure your JS does not contain any errors?&lt;/h3&gt;
-
-&lt;p&gt;Let me pass my JS to node and let it do a syntax check:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget -qO-  http://localhost:3000/assets/app.js | node
-
-  Namespace(&#39;utils&#39;);
-  ^
-
-ReferenceError: Namespace is not defined
-    at [stdin]:2:3
-    at [stdin]:42:3
-    at ContextifyScript.Script.runInThisContext (vm.js:26:33)
-    at Object.exports.runInThisContext (vm.js:79:17)
-    at Object.&amp;lt;anonymous&amp;gt; ([stdin]-wrapper:6:22)
-    at Module._compile (module.js:571:32)
-    at Immediate.&amp;lt;anonymous&amp;gt; (bootstrap_node.js:383:29)
-    at runCallback (timers.js:649:20)
-    at tryOnImmediate (timers.js:622:5)
-    at processImmediate [as _immediateCallback] (timers.js:594:5)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I don&amp;rsquo;t thinkg this is helpful at all. Instead I&amp;rsquo;m gonna pass it through a linter using the default configurations:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget -qO-  http://localhost:3000/app/assets/app.js | eslint --stdin --no-eslintrc
-
-&amp;lt;text&amp;gt;
-  1222:35  error  Parsing error: Unexpected token =
-
-✖ 1 problem (1 error, 0 warnings)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This looks nicer so now let&amp;rsquo;s see what that line has:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget -qO-  http://localhost:3000/app/assets/app.js | sed -n &#39;1222p&#39;
-  initialize: function(attributes = {}) {
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;A3:&lt;/strong&gt; I&amp;rsquo;m using a default argument. Which worked fine in the browser, but not in my old headless test suite.&lt;/p&gt;
-
-&lt;h2 id=&#34;solution:250b2125bf43866cb0619e8c7ffb8062&#34;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;I didn&amp;rsquo;t need a default argument right there. So I simply removed it. Anyways I really need to upgrade my test
-suite.&lt;/p&gt;
-</description>
+      <description>Motivation I&amp;rsquo;m working on a project that uses guard-jasmine (1.19.2). For a number reasons I can&amp;rsquo;t upgrade it yet.
+This morning the test headless test suite started failing with:
+➜ bundle exec guard-jasmine Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off). Waiting for Jasmine test runner at http://localhost:58583/jasmine Run all Jasmine suites Run Jasmine suite at http://localhost:58583/jasmine 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.</description>
     </item>
     
     <item>
@@ -148,75 +41,10 @@ suite.&lt;/p&gt;
       <pubDate>Tue, 23 Aug 2016 08:39:20 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
-      <description>
-
-&lt;h2 id=&#34;motivation:59f22d5148e87060e8fa8910ab07ff1a&#34;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;Share my preferences.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Books&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.poodr.com/&#34;&gt;Practical Object Oriented Design in Ruby&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445&#34;&gt;Agile Software Development, Principles, Patterns, and Practices&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://shop.oreilly.com/product/9780596008673.do&#34;&gt;Head First Object-Oriented Analysis and Design&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&#34;&gt;Clean Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Coder-Conduct-Professional-Programmers/dp/0137081073&#34;&gt;The Clean Coder&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pragprog.com/book/cfcar2/the-passionate-programmer&#34;&gt;The Passionate Programmer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://theseniorsoftwareengineer.com/&#34;&gt;The Senior Software Engineer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.manning.com/books/soft-skills&#34;&gt;Soft Skills&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://pragprog.com/book/dnvim/practical-vim&#34;&gt;Practical Vim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&#34;&gt;Domain Driven Design&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Patterns-Enterprise-Application-Architecture-Martin/dp/0321127420&#34;&gt;Patterns of Enterprise Application Architecture&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://shop.oreilly.com/product/9780596007126.do&#34;&gt;Head First Design Patterns&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Refactoring-Ruby-Addison-Wesley-Professional/dp/0321984137&#34;&gt;Refactoring: Ruby Edition&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052&#34;&gt;Working Effectively With Legacy Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Practices&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://exercism.io/&#34;&gt;exercism.io&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://coderetreat.org/&#34;&gt;Coderetreats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Code Katas&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://vim-adventures.com/&#34;&gt;Vim Adventures&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.vimgolf.com/&#34;&gt;Vim Golf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.typing.com&#34;&gt;Learn touch typing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.hackerrank.com/&#34;&gt;Hacker Rank&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Job Search&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.tiobe.com/tiobe-index/&#34;&gt;TIOBE index&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Jobs offers per site&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Movies&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.imdb.com/title/tt5818010/&#34;&gt;The Secret Rules of Modern Living: Algorithms&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.travellingsalesmanmovie.com/&#34;&gt;Travelling Salesman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://buy.indiegamethemovie.com/&#34;&gt;Indie Game The Movie&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Paid resources&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;safaribooksonline.com&#34;&gt;Safari books&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://upcase.com/&#34;&gt;Upcase&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;todo:59f22d5148e87060e8fa8910ab07ff1a&#34;&gt;TODO&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Add more resources&lt;/li&gt;
-&lt;li&gt;Add brief description of each resource and say why I like it.&lt;/li&gt;
-&lt;li&gt;Maybe create some learning paths?&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Motivation Share my preferences.
+ Books
+ Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code  Practices
+ exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank  Job Search</description>
     </item>
     
     <item>
@@ -225,82 +53,11 @@ suite.&lt;/p&gt;
       <pubDate>Mon, 22 Aug 2016 14:47:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/self-code-retreat-game-of-life/</guid>
-      <description>
-
-&lt;h2 id=&#34;motivation:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;I&amp;rsquo;ve been lucky to participate in many &lt;a href=&#34;http://coderetreat.org/&#34;&gt;Coderetreats&lt;/a&gt; and I want to do a small coding practice that keeps the same feeling.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-a-code-retreat:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;What is a Code retreat?&lt;/h2&gt;
-
-&lt;p&gt;The &lt;a href=&#34;http://coderetreat.org/about&#34;&gt;Coderetreat site&lt;/a&gt; says:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A Code retreat day is structured in two main parts:&lt;/p&gt;
-
-&lt;h3 id=&#34;setting-context:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Setting context&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;A previously chosen exercise is explained to the audience, most of the times the chosen exercise is &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&#34;&gt;Conway&amp;rsquo;s Game of Life&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;There will be between 4 and 6 sessions, each session will be 45min long.&lt;/li&gt;
-&lt;li&gt;Each session has an &lt;a href=&#34;http://coderetreat.org/facilitating/activity-catalog&#34;&gt;activity&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Each Activity teaches something specific.&lt;/li&gt;
-&lt;li&gt;People has to &lt;a href=&#34;https://en.wikipedia.org/wiki/Pair_programming&#34;&gt;pair program&lt;/a&gt;, so everyone finds a partner.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;iterating-sessions:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Iterating sessions&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Session starts, pick your favorite language and start coding, follow the Activity constraints if any.&lt;/li&gt;
-&lt;li&gt;45 min later the session ends, you MUST DELETE YOUR CODE.&lt;/li&gt;
-&lt;li&gt;Retrospective time.&lt;/li&gt;
-&lt;li&gt;Rest 10-15 min.&lt;/li&gt;
-&lt;li&gt;Switch pair, pick another activity and start another session.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;what-is-the-best-about-a-code-retreat:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;What is the best about a Code retreat?&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Repetition&lt;/li&gt;
-&lt;li&gt;Retrospection&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;how-to-mimic-the-most-important-things:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;How to mimic the most important things?&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Define the session duration (I like 25-30 min).&lt;/li&gt;
-&lt;li&gt;Pick a restriction.&lt;/li&gt;
-&lt;li&gt;Pick an exercise.&lt;/li&gt;
-&lt;li&gt;At the end of the session commit your code and tag it.&lt;/li&gt;
-&lt;li&gt;Rest, I like to take 5-10 min.&lt;/li&gt;
-&lt;li&gt;Start a new session from scratch&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;examples-to-try:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;Examples to try&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/gilded_rose_kata&#34;&gt;https://github.com/chischaschos/gilded_rose_kata&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/el_gato&#34;&gt;https://github.com/chischaschos/el_gato&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/bare_gato&#34;&gt;https://github.com/chischaschos/bare_gato&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/tic-tac-toe-pairing-with-pollo&#34;&gt;https://github.com/chischaschos/tic-tac-toe-pairing-with-pollo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/ruby-game_of_life&#34;&gt;https://github.com/chischaschos/ruby-game_of_life&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/ruby-bowling_game&#34;&gt;https://github.com/chischaschos/ruby-bowling_game&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/toy-robot-simulator-kata&#34;&gt;https://github.com/chischaschos/toy-robot-simulator-kata&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/go-bankocr-kata&#34;&gt;https://github.com/chischaschos/go-bankocr-kata&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/chischaschos/bank_ocr-ruby-kata&#34;&gt;https://github.com/chischaschos/bank_ocr-ruby-kata&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;todo:d6c51b82e16ea3a89a17a05d1998334d&#34;&gt;TODO:&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Clean up examples README.md files, or maybe group all katas in a single repo.&lt;/li&gt;
-&lt;li&gt;Provide examples of restrictions I&amp;rsquo;ve liked.&lt;/li&gt;
-&lt;li&gt;Try &lt;a href=&#34;https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf&#34;&gt;Jeff Bay&amp;rsquo;s Object Calisthenics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Motivation I&amp;rsquo;ve been lucky to participate in many Coderetreats and I want to do a small coding practice that keeps the same feeling.
+What is a Code retreat? The Coderetreat site says:
+ Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.
+ A Code retreat day is structured in two main parts:
+Setting context  A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description>
     </item>
     
     <item>
@@ -309,58 +66,11 @@ suite.&lt;/p&gt;
       <pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid>
-      <description>
-
-&lt;h2 id=&#34;document-status:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;Document status&lt;/h2&gt;
-
-&lt;p&gt;Work in progress.&lt;/p&gt;
-
-&lt;h2 id=&#34;motivation:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;Some months ago, at an interview I got asked this:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;What would you use &lt;a href=&#34;https://github.com/resque/resque&#34;&gt;resque&lt;/a&gt; or &lt;a href=&#34;https://github.com/mperham/sidekiq&#34;&gt;sidekiq&lt;/a&gt; and why?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;My answer was something along the lines of:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Sidekiq consumes less memory, so that sounds better.&lt;/li&gt;
-&lt;li&gt;Both Resque and Sidekiq are stable and widely used in production.&lt;/li&gt;
-&lt;li&gt;I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs.&lt;/li&gt;
-&lt;li&gt;Before making my choice I would need to know the kind of background processing that we would do. I want to know if the jobs would be &lt;a href=&#34;http://stackoverflow.com/questions/868568/what-do-the-terms-cpu-bound-and-i-o-bound-mean&#34;&gt;IO bound or CPU bound&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I want this writing to be:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;A helper to uncover a better answer.&lt;/li&gt;
-&lt;li&gt;A mental model and decision framework to help me make a choice the next time.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;what-is-background-processing:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;What is background processing?&lt;/h2&gt;
-
-&lt;h2 id=&#34;what-the-internet-says-about-it:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;What the internet says about it?&lt;/h2&gt;
-
-&lt;h2 id=&#34;pros-and-cons:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;PROs and CONs&lt;/h2&gt;
-
-&lt;h2 id=&#34;how-your-problem-impacts-the-choice:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;How your problem impacts the choice&lt;/h2&gt;
-
-&lt;h2 id=&#34;mental-model-and-decision-frameworks:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;Mental model and decision frameworks&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hbr.org/2007/11/a-leaders-framework-for-decision-making&#34;&gt;https://hbr.org/2007/11/a-leaders-framework-for-decision-making&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mentalmodelsblog.wordpress.com/&#34;&gt;https://mentalmodelsblog.wordpress.com/&lt;/a&gt;
-&lt;a href=&#34;http://mentalmodels.princeton.edu/about/what-are-mental-models/&#34;&gt;http://mentalmodels.princeton.edu/about/what-are-mental-models/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;todo:6f5ccd5492cd4a6c6c270f893cf80da3&#34;&gt;TODO&lt;/h2&gt;
-
-&lt;p&gt;Review:
-- &lt;a href=&#34;https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537&#34;&gt;https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537&lt;/a&gt;
-- &lt;a href=&#34;http://www.thegeekstuff.com/2013/11/linux-process-and-threads/&#34;&gt;http://www.thegeekstuff.com/2013/11/linux-process-and-threads/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Document status Work in progress.
+Motivation Some months ago, at an interview I got asked this:
+ What would you use resque or sidekiq and why?
+ My answer was something along the lines of:
+ Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs.</description>
     </item>
     
     <item>
@@ -369,40 +79,9 @@ suite.&lt;/p&gt;
       <pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate>
       
       <guid>//chischaschos.github.io/post/rspec-antipatterns/</guid>
-      <description>
-
-&lt;h2 id=&#34;document-status:95e794e4f534c70cfe4502d04b897ee9&#34;&gt;Document status&lt;/h2&gt;
-
-&lt;p&gt;Work in progress.&lt;/p&gt;
-
-&lt;h2 id=&#34;motivation:95e794e4f534c70cfe4502d04b897ee9&#34;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-the-internet-says-about-it:95e794e4f534c70cfe4502d04b897ee9&#34;&gt;What the internet says about it?&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://thoughtbot.com/upcase/videos/four-phases-of-testing&#34;&gt;https://thoughtbot.com/upcase/videos/four-phases-of-testing&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://robots.thoughtbot.com/how-we-test-rails-applications&#34;&gt;https://robots.thoughtbot.com/how-we-test-rails-applications&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716&#34;&gt;http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/&#34;&gt;http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;notes-so-far:95e794e4f534c70cfe4502d04b897ee9&#34;&gt;Notes so far&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;let&lt;/code&gt; may be is lazy and convenient.&lt;/li&gt;
-&lt;li&gt;If another developer comes and looks at the &lt;code&gt;it&lt;/code&gt;, he will see a mystery guest.&lt;/li&gt;
-&lt;li&gt;You create a DSL within RSpec, DSL puzzle.&lt;/li&gt;
-&lt;li&gt;Each piece of indirection improves high level view, but makes it more complex when you have to change it.&lt;/li&gt;
-&lt;li&gt;Tests start by setting up the test and then abstract enough so you remove the unimportant details into a factory.&lt;/li&gt;
-&lt;li&gt;Start with methods, then classes if shared among tests, then the big guns like &lt;code&gt;let&lt;/code&gt; and finally shared examples.&lt;/li&gt;
-&lt;li&gt;You don&amp;rsquo;t want to rebuild what a &lt;code&gt;let&lt;/code&gt; does, like memoize.&lt;/li&gt;
-&lt;li&gt;If you see duplication in your tests it may mean a DRY design issue.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;subject&lt;/code&gt; is a less descriptive version of &lt;code&gt;let&lt;/code&gt;, a &lt;code&gt;let&lt;/code&gt; without a name.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;subject&lt;/code&gt; is good for &lt;a href=&#34;https://github.com/thoughtbot/shoulda&#34;&gt;shoulda&lt;/a&gt; matchers, not descriptive, good for one liners.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Document status Work in progress.
+Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
+What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/  Notes so far  let may be is lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle.</description>
     </item>
     
   </channel>

@@ -84,7 +84,7 @@
             <div class="post-content">
                 
 
-<h2 id="motivation:250b2125bf43866cb0619e8c7ffb8062">Motivation</h2>
+<h2 id="motivation">Motivation</h2>
 
 <p>I&rsquo;m working on a project that uses <code>guard-jasmine (1.19.2)</code>. For a number reasons I can&rsquo;t upgrade it yet.</p>
 
@@ -104,11 +104,11 @@ only the the headless suite is failing.</p>
 
 <p>I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed to find the error.</p>
 
-<h2 id="the-bug-hunt:250b2125bf43866cb0619e8c7ffb8062">The bug hunt</h2>
+<h2 id="the-bug-hunt">The bug hunt</h2>
 
 <p>I started asking myself a bunch of questions such as:</p>
 
-<h3 id="q1-can-i-execute-the-same-command-and-get-a-more-verbose-output:250b2125bf43866cb0619e8c7ffb8062">Q1. Can I execute the same command and get a more verbose output?</h3>
+<h3 id="q1-can-i-execute-the-same-command-and-get-a-more-verbose-output">Q1. Can I execute the same command and get a more verbose output?</h3>
 
 <pre><code>  ➜  bundle exec guard-jasmine --verbose
 Guard::Jasmine starts Unicorn spec server on port 58749 in test environment (coverage off).
@@ -129,7 +129,7 @@ An error occurred in the Jasmine runner
 
 <p><strong>A1:</strong> Well yes there is a verbose option, but it didn&rsquo;t things clearer for me.</p>
 
-<h3 id="q2-can-i-set-a-debugger-and-see-what-is-going-on:250b2125bf43866cb0619e8c7ffb8062">Q2. Can I set a debugger and see what is going on?</h3>
+<h3 id="q2-can-i-set-a-debugger-and-see-what-is-going-on">Q2. Can I set a debugger and see what is going on?</h3>
 
 <p><strong>A2:</strong> Well yes but where?. OK so the entry point is the command <code>guard-jasmine</code> so:</p>
 
@@ -162,12 +162,12 @@ An error occurred in the Jasmine runner
 <p><strong>A2 Extended answer:</strong> Now I am able to run the same command without invoking the gem executable (copy paste it from the debugger), the problem is that I get the same error.
 The nice thing is that I learned how test runner works.</p>
 
-<h3 id="q3-before-keep-digging-are-you-sure-your-js-does-not-contain-any-errors:250b2125bf43866cb0619e8c7ffb8062">Q3: Before keep digging, are you sure your JS does not contain any errors?</h3>
+<h3 id="q3-before-keep-digging-are-you-sure-your-js-does-not-contain-any-errors">Q3: Before keep digging, are you sure your JS does not contain any errors?</h3>
 
 <p>Let me pass my JS to node and let it do a syntax check:</p>
 
 <pre><code>wget -qO-  http://localhost:3000/assets/app.js | node
-
+[stdin]:2
   Namespace('utils');
   ^
 
@@ -202,7 +202,7 @@ ReferenceError: Namespace is not defined
 
 <p><strong>A3:</strong> I&rsquo;m using a default argument. Which worked fine in the browser, but not in my old headless test suite.</p>
 
-<h2 id="solution:250b2125bf43866cb0619e8c7ffb8062">Solution</h2>
+<h2 id="solution">Solution</h2>
 
 <p>I didn&rsquo;t need a default argument right there. So I simply removed it. Anyways I really need to upgrade my test
 suite.</p>
@@ -269,27 +269,6 @@ suite.</p>
       $(".desktop").removeAttr("style");
     }
   });
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-21486770-1', 'auto');
-  ga('send', 'pageview');
-</script>
-<script src="//carnivalapp.io/sites/611/init.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-  Carnival.init({
-    enabled: true,
-    article_author: "emmanuel d",
-    article_selector: "div.post",
-    block_selector: ":scope > p, :scope > pre",
-  });
-});
 </script>
 
 </body>

@@ -6,10 +6,20 @@
     <description>Recent content in Posts on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 May 2017 13:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 29 May 2017 23:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lessons learned from creating a postgresql data playground</title>
+      <link>//chischaschos.github.io/post/create-a-postgresql-data-playground/</link>
+      <pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/create-a-postgresql-data-playground/</guid>
+      <description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
+End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description>
+    </item>
     
     <item>
       <title>The Quest to learn GraphQL</title>

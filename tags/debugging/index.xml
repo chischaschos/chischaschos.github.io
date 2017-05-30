@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugging on chischaschos rocks</title>
+    <link>//chischaschos.github.io/tags/debugging/</link>
+    <description>Recent content in Debugging on chischaschos rocks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Sep 2016 11:11:11 -0700</lastBuildDate>
+    
+	<atom:link href="//chischaschos.github.io/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Debugging guard-jasmine error</title>
+      <link>//chischaschos.github.io/post/debugging-guard-jasmine-error/</link>
+      <pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
+      <description>Motivation I&amp;rsquo;m working on a project that uses guard-jasmine (1.19.2). For a number reasons I can&amp;rsquo;t upgrade it yet.
+This morning the test headless test suite started failing with:
+➜ bundle exec guard-jasmine Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off). Waiting for Jasmine test runner at http://localhost:58583/jasmine Run all Jasmine suites Run Jasmine suite at http://localhost:58583/jasmine 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.</description>
+    </item>
+    
+  </channel>
+</rss>

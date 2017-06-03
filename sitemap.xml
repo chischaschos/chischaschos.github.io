@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>//chischaschos.github.io/post/learning-window-functions-with-postgresql/</loc>
+    <lastmod>2017-06-03T03:15:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</loc>
     <lastmod>2017-05-29T23:00:00-07:00</lastmod>
   </url>
@@ -84,13 +89,13 @@
   
   <url>
     <loc>//chischaschos.github.io/tags/postgresql/</loc>
-    <lastmod>2017-05-29T23:00:00-07:00</lastmod>
+    <lastmod>2017-06-03T03:15:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>//chischaschos.github.io/post/</loc>
-    <lastmod>2017-05-29T23:00:00-07:00</lastmod>
+    <lastmod>2017-06-03T03:15:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -103,6 +108,12 @@
   <url>
     <loc>//chischaschos.github.io/tags/ruby/</loc>
     <lastmod>2017-05-29T23:00:00-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//chischaschos.github.io/tags/sql/</loc>
+    <lastmod>2017-06-03T03:15:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -120,7 +131,7 @@
   
   <url>
     <loc>//chischaschos.github.io/</loc>
-    <lastmod>2017-05-29T23:00:00-07:00</lastmod>
+    <lastmod>2017-06-03T03:15:00-07:00</lastmod>
     <priority>0</priority>
   </url>
   

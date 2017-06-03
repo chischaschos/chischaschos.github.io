@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Postgresql on chischaschos rocks</title>
-    <link>//chischaschos.github.io/tags/postgresql/</link>
-    <description>Recent content in Postgresql on chischaschos rocks</description>
+    <title>Sql on chischaschos rocks</title>
+    <link>//chischaschos.github.io/tags/sql/</link>
+    <description>Recent content in Sql on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Jun 2017 03:15:00 -0700</lastBuildDate>
     
-	<atom:link href="//chischaschos.github.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//chischaschos.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,16 +21,6 @@
 This example uses the fake messaging app playgroung. What we are going to do is to get the messages from groups a user is part of, only the top 3 messages of each group sorted by creation date are returned.
 This blog is written using commit cf971929380a91730dffb9b87177f664bd87aa1a of the fake messaging app playground.
 An example use case What we are going to do is to obtain the latest 3 messages a user has from each group.</description>
-    </item>
-    
-    <item>
-      <title>Lessons learned from creating a postgresql data playground</title>
-      <link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link>
-      <pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid>
-      <description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
-End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description>
     </item>
     
   </channel>

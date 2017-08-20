@@ -6,10 +6,33 @@
     <description>Recent content on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jun 2017 03:15:00 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 -0600</lastBuildDate>
     
 	<atom:link href="//chischaschos.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>about</title>
+      <link>//chischaschos.github.io/about/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 -0600</pubDate>
+      
+      <guid>//chischaschos.github.io/about/</guid>
+      <description> What I’m doing now I am Emmanuel Delgado, currently living in San Francisco, US. I am investing my time in:
+ Developing Software in ModCloth Training BJJ. Reading  If my activities change, I’ll update this page. Last update was in February 2016.
+ CREDIT: I stole the idea for this page from Gregory Brown and Derek Sivers.
+ </description>
+    </item>
+    
+    <item>
+      <title>Fog City Ruby&#39;s Approaching a legacy application</title>
+      <link>//chischaschos.github.io/post/fog-city-ruby-legacy-apps/</link>
+      <pubDate>Tue, 13 Jun 2017 18:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/fog-city-ruby-legacy-apps/</guid>
+      <description>Fog City Ruby&amp;rsquo;s Approaching a legacy application Exposed at Fog City Ruby on June 13, 2017.
+This talk is my attempt on improving the original talk applying what I learned after two years condensed in 18 minutes.
+Published in its own micro site at: https://chischaschos.github.io/approaching-legacy-systems</description>
+    </item>
     
     <item>
       <title>Learning window functions with postgresql</title>
@@ -83,16 +106,6 @@ Setting context  A previously chosen exercise is explained to the audience, most
     </item>
     
     <item>
-      <title>about</title>
-      <link>//chischaschos.github.io/about/</link>
-      <pubDate>Mon, 08 Aug 2016 20:18:44 -0600</pubDate>
-      
-      <guid>//chischaschos.github.io/about/</guid>
-      <description>What I’m doing now I am Emmanuel Delgado, currently living in San Francisco, US. I am investing my time in:
- Developing Software in ModCloth Udacity&amp;rsquo;s AI nanodegree program Training BJJ.  What I was doing on February 2016  Consulting at Magma Labs. Learning about Graphs in Coursera&amp;rsquo;s Advanced Data Structures. Preparing a podcast with my friends in La Developeria, hopefully to be launched before end of February 2016.</description>
-    </item>
-    
-    <item>
       <title>Resque and Sidekiq as of August 2016</title>
       <link>//chischaschos.github.io/post/resque-and-sidekiq/</link>
       <pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate>
@@ -105,6 +118,25 @@ Setting context  A previously chosen exercise is explained to the audience, most
     </item>
     
     <item>
+      <title>Fail inc</title>
+      <link>//chischaschos.github.io/post/fail-inc/</link>
+      <pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/fail-inc/</guid>
+      <description> Fail inc  </description>
+    </item>
+    
+    <item>
+      <title>WDT&#39;s Four Phases Tests</title>
+      <link>//chischaschos.github.io/post/four-phases-test/</link>
+      <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/four-phases-test/</guid>
+      <description> WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
+ </description>
+    </item>
+    
+    <item>
       <title>RSpec and the Four Phase Tests</title>
       <link>//chischaschos.github.io/post/rspec-antipatterns/</link>
       <pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate>
@@ -112,6 +144,35 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <guid>//chischaschos.github.io/post/rspec-antipatterns/</guid>
       <description>Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
 What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/  Notes so far  let may be is lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description>
+    </item>
+    
+    <item>
+      <title>WDT&#39;s Approaching a legacy application</title>
+      <link>//chischaschos.github.io/post/wdt-legacy-apps/</link>
+      <pubDate>Wed, 28 Oct 2015 21:13:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/wdt-legacy-apps/</guid>
+      <description> WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
+ </description>
+    </item>
+    
+    <item>
+      <title>2011 Magma Rails&#39;s Object Oriented Design and Patterns</title>
+      <link>//chischaschos.github.io/post/object-oriented-design-and-patterns/</link>
+      <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
+      <description> 2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
+    </item>
+    
+    <item>
+      <title>WDT&#39;s Sinatra: De nada a TODO</title>
+      <link>//chischaschos.github.io/post/sinatra-todo/</link>
+      <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
+      <description> WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
+ </description>
     </item>
     
   </channel>

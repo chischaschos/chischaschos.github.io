@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life on chischaschos rocks</title>
+    <link>//chischaschos.github.io/tags/life/</link>
+    <description>Recent content in Life on chischaschos rocks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Mar 2016 05:42:00 -0700</lastBuildDate>
+    
+	<atom:link href="//chischaschos.github.io/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fail inc</title>
+      <link>//chischaschos.github.io/post/fail-inc/</link>
+      <pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/fail-inc/</guid>
+      <description> Fail inc  </description>
+    </item>
+    
+  </channel>
+</rss>

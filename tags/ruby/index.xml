@@ -44,5 +44,24 @@ This morning the test headless test suite started failing with:
  Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description>
     </item>
     
+    <item>
+      <title>2011 Magma Rails&#39;s Object Oriented Design and Patterns</title>
+      <link>//chischaschos.github.io/post/object-oriented-design-and-patterns/</link>
+      <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
+      <description> 2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
+    </item>
+    
+    <item>
+      <title>WDT&#39;s Sinatra: De nada a TODO</title>
+      <link>//chischaschos.github.io/post/sinatra-todo/</link>
+      <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
+      <description> WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
+ </description>
+    </item>
+    
   </channel>
 </rss>

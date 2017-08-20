@@ -6,10 +6,20 @@
     <description>Recent content in Testing on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Feb 2016 20:49:58 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 24 Feb 2016 18:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//chischaschos.github.io/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WDT&#39;s Four Phases Tests</title>
+      <link>//chischaschos.github.io/post/four-phases-test/</link>
+      <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/four-phases-test/</guid>
+      <description> WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
+ </description>
+    </item>
     
     <item>
       <title>RSpec and the Four Phase Tests</title>

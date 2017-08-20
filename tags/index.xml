@@ -32,7 +32,7 @@
     <item>
       <title>Coding</title>
       <link>//chischaschos.github.io/tags/coding/</link>
-      <pubDate>Tue, 23 Aug 2016 08:39:20 -0700</pubDate>
+      <pubDate>Tue, 13 Jun 2017 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/tags/coding/</guid>
       <description></description>
@@ -53,6 +53,15 @@
       <pubDate>Tue, 02 May 2017 13:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/tags/graphql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>//chischaschos.github.io/tags/life/</link>
+      <pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/tags/life/</guid>
       <description></description>
     </item>
     
@@ -84,6 +93,15 @@
     </item>
     
     <item>
+      <title>Sinatra</title>
+      <link>//chischaschos.github.io/tags/sinatra/</link>
+      <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/tags/sinatra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Sql</title>
       <link>//chischaschos.github.io/tags/sql/</link>
       <pubDate>Sat, 03 Jun 2017 03:15:00 -0700</pubDate>
@@ -95,7 +113,7 @@
     <item>
       <title>Testing</title>
       <link>//chischaschos.github.io/tags/testing/</link>
-      <pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate>
+      <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/tags/testing/</guid>
       <description></description>

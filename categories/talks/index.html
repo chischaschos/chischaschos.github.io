@@ -3,8 +3,8 @@
 
   
   <meta charset="utf-8">
-  <title>RSpec and the Four Phase Tests</title>
-  <meta name="description" content="RSpec and the Four Phase Tests">
+  <title>Talks</title>
+  <meta name="description" content="Talks">
   <meta name="author" content="emmanuel delgado">
 
   
@@ -78,80 +78,167 @@
 </div>
 
 
+
 <div class="pure-g">
     <div class="pure-u-1-24 pure-u-md-5-24"></div>
-  <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="post">
+	<div class="pure-u-11-12 pure-u-md-5-8">
+	  <p class="posts-name">Talks:</p>
 
-            <div class="post-title">
-                <p class="footnote">
-                    <time class="">2016-02-07</time>
-                
-                    
-                    |
-                    
-                    
-                    tags:<a href="//chischaschos.github.io/tags/rspec">rspec</a> <a href="//chischaschos.github.io/tags/testing">testing</a> <a href="//chischaschos.github.io/tags/best-practices">best practices</a> 
-                    
+	  <ul class="posts">
+		
+		
+		
+		<li>
+		  <a href="//chischaschos.github.io/post/fog-city-ruby-legacy-apps/">Fog City Ruby&#39;s Approaching a legacy application</a>
 
-                    
-                    categories:<a href="//chischaschos.github.io/categories/pending-research">pending-research</a> 
-                    
+		  <p class="footnote">
+			submitted <time datetime="2017-06-13T18:00:00-07:00" class="post-list timeago">2017-06-13T18:00:00-07:00</time>
 
-                    
-                </p>
-                <h1>RSpec and the Four Phase Tests</h1>
-            </div>
+			
+			to
+			
 
-            <div class="post-content">
-                
+			
+			tags:[ <a href="//chischaschos.github.io/tags/coding">coding</a> ]
+			
 
-<h2 id="motivation">Motivation</h2>
+			
+			categories:[ <a href="//chischaschos.github.io/categories/talks">talks</a> ]
+			
 
-<p>I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.</p>
+			
 
-<h2 id="what-the-internet-says-about-it">What the internet says about it?</h2>
+		  </p>
+		</li>
+		
+		
+		
+		<li>
+		  <a href="//chischaschos.github.io/post/fail-inc/">Fail inc</a>
 
-<ul>
-<li><a href="https://thoughtbot.com/upcase/videos/four-phases-of-testing">https://thoughtbot.com/upcase/videos/four-phases-of-testing</a>.</li>
-<li><a href="https://robots.thoughtbot.com/how-we-test-rails-applications">https://robots.thoughtbot.com/how-we-test-rails-applications</a></li>
-<li><a href="http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716">http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716</a></li>
-<li><a href="http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/">http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/</a></li>
-</ul>
+		  <p class="footnote">
+			submitted <time datetime="2016-03-31T05:42:00-07:00" class="post-list timeago">2016-03-31T05:42:00-07:00</time>
 
-<h2 id="notes-so-far">Notes so far</h2>
+			
+			to
+			
 
-<ul>
-<li><code>let</code> may be is lazy and convenient.</li>
-<li>If another developer comes and looks at the <code>it</code>, he will see a mystery guest.</li>
-<li>You create a DSL within RSpec, DSL puzzle.</li>
-<li>Each piece of indirection improves high level view, but makes it more complex when you have to change it.</li>
-<li>Tests start by setting up the test and then abstract enough so you remove the unimportant details into a factory.</li>
-<li>Start with methods, then classes if shared among tests, then the big guns like <code>let</code> and finally shared examples.</li>
-<li>You don&rsquo;t want to rebuild what a <code>let</code> does, like memoize.</li>
-<li>If you see duplication in your tests it may mean a DRY design issue.</li>
-<li><code>subject</code> is a less descriptive version of <code>let</code>, a <code>let</code> without a name.</li>
-<li><code>subject</code> is good for <a href="https://github.com/thoughtbot/shoulda">shoulda</a> matchers, not descriptive, good for one liners.</li>
-</ul>
+			
+			tags:[ <a href="//chischaschos.github.io/tags/life">life</a> ]
+			
 
-                
-<div id="disqus_thread"></div>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
+			
+			categories:[ <a href="//chischaschos.github.io/categories/talks">talks</a> ]
+			
 
-s.src = '//chischaschos-rocks.disqus.com/embed.js';
+			
 
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+		  </p>
+		</li>
+		
+		
+		
+		<li>
+		  <a href="//chischaschos.github.io/post/four-phases-test/">WDT&#39;s Four Phases Tests</a>
 
+		  <p class="footnote">
+			submitted <time datetime="2016-02-24T18:00:00-07:00" class="post-list timeago">2016-02-24T18:00:00-07:00</time>
 
-            </div>
-        </div>
-  </div>
+			
+			to
+			
+
+			
+			tags:[ <a href="//chischaschos.github.io/tags/coding">coding</a> <a href="//chischaschos.github.io/tags/testing">testing</a> ]
+			
+
+			
+			categories:[ <a href="//chischaschos.github.io/categories/talks">talks</a> ]
+			
+
+			
+
+		  </p>
+		</li>
+		
+		
+		
+		<li>
+		  <a href="//chischaschos.github.io/post/wdt-legacy-apps/">WDT&#39;s Approaching a legacy application</a>
+
+		  <p class="footnote">
+			submitted <time datetime="2015-10-28T21:13:00-07:00" class="post-list timeago">2015-10-28T21:13:00-07:00</time>
+
+			
+			to
+			
+
+			
+			tags:[ <a href="//chischaschos.github.io/tags/coding">coding</a> ]
+			
+
+			
+			categories:[ <a href="//chischaschos.github.io/categories/talks">talks</a> ]
+			
+
+			
+
+		  </p>
+		</li>
+		
+		
+		
+		<li>
+		  <a href="//chischaschos.github.io/post/object-oriented-design-and-patterns/">2011 Magma Rails&#39;s Object Oriented Design and Patterns</a>
+
+		  <p class="footnote">
+			submitted <time datetime="2015-09-23T15:00:00-07:00" class="post-list timeago">2015-09-23T15:00:00-07:00</time>
+
+			
+			to
+			
+
+			
+			tags:[ <a href="//chischaschos.github.io/tags/coding">coding</a> <a href="//chischaschos.github.io/tags/ruby">ruby</a> ]
+			
+
+			
+			categories:[ <a href="//chischaschos.github.io/categories/talks">talks</a> ]
+			
+
+			
+
+		  </p>
+		</li>
+		
+		
+		
+		<li>
+		  <a href="//chischaschos.github.io/post/sinatra-todo/">WDT&#39;s Sinatra: De nada a TODO</a>
+
+		  <p class="footnote">
+			submitted <time datetime="2015-08-19T18:00:00-07:00" class="post-list timeago">2015-08-19T18:00:00-07:00</time>
+
+			
+			to
+			
+
+			
+			tags:[ <a href="//chischaschos.github.io/tags/coding">coding</a> <a href="//chischaschos.github.io/tags/sinatra">sinatra</a> <a href="//chischaschos.github.io/tags/ruby">ruby</a> ]
+			
+
+			
+			categories:[ <a href="//chischaschos.github.io/categories/talks">talks</a> ]
+			
+
+			
+
+		  </p>
+		</li>
+		
+		
+	  </ul>
+	</div>
     <div class="pure-u-1-24 pure-u-md-1-6"></div>
 </div>
 

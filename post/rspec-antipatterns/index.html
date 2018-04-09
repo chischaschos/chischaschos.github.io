@@ -119,10 +119,10 @@
 <li><a href="http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/">http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/</a></li>
 </ul>
 
-<h2 id="notes-so-far">Notes so far</h2>
+<h2 id="notes">Notes</h2>
 
 <ul>
-<li><code>let</code> may be is lazy and convenient.</li>
+<li><code>let</code> may be lazy and convenient.</li>
 <li>If another developer comes and looks at the <code>it</code>, he will see a mystery guest.</li>
 <li>You create a DSL within RSpec, DSL puzzle.</li>
 <li>Each piece of indirection improves high level view, but makes it more complex when you have to change it.</li>
@@ -133,6 +133,52 @@
 <li><code>subject</code> is a less descriptive version of <code>let</code>, a <code>let</code> without a name.</li>
 <li><code>subject</code> is good for <a href="https://github.com/thoughtbot/shoulda">shoulda</a> matchers, not descriptive, good for one liners.</li>
 </ul>
+
+<h2 id="personal-experience">Personal experience</h2>
+
+<p>When I read a test I want to understand its structure and dependencies, but
+the most important thing I want is to to understand what is the behavior
+that a test exercises.</p>
+
+<p>The usual path to understand tests is to:</p>
+
+<ul>
+<li>Run specs formatted as documentation</li>
+<li>For a specific test:
+
+<ul>
+<li>Identify how to trigger/exercise the test</li>
+<li>Understand the expectations of the test</li>
+<li>Ponder if the description and context semantically matches what we
+are exercising in the test</li>
+</ul></li>
+<li>Additionally for a specific test:
+
+<ul>
+<li>Understand what is the minimum required data to make it pass</li>
+<li>Identify what are the dependencies and preconditions</li>
+</ul></li>
+</ul>
+
+<p>RSpec can be abused as any other tools, I don&rsquo;t see how declaring nested lets or multiple lets that expand across 40 lines would help me understand
+the aforementioned ideas. At the same time if I see multiple lets it
+suggests me that all of them are important to understand the expectations
+and purpose of a test, and if this is true, then the test may be too
+complex and have many dependencies.</p>
+
+<p>That said, is there another way?</p>
+
+<p>There is, we could use cucumber to express the intentions of the code in
+plain english, but then we are talking about introducting a new tool, and
+we don&rsquo;t need it, we already have ruby, why don&rsquo;t we simply do ruby?</p>
+
+<p>This means that we can still use rspec and use verbose function names
+and high level abstraction concepts in single specifications.</p>
+
+<p>An specification only introduces the high level dependencies that are
+needed to execute our test and it also introduces high level expectations
+definitions. Every other detail is gonna live inside ruby functions that
+will play the role of a domain data factory library.</p>
 
                 
 <div id="disqus_thread"></div>

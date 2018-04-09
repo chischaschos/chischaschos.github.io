@@ -143,7 +143,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       
       <guid>//chischaschos.github.io/post/rspec-antipatterns/</guid>
       <description>Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
-What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/  Notes so far  let may be is lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description>
+What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/  Notes  let may be lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description>
     </item>
     
     <item>

@@ -3,8 +3,8 @@
 
   
   <meta charset="utf-8">
-  <title>Tags</title>
-  <meta name="description" content="Tags">
+  <title>TIL debugging Rails migrations</title>
+  <meta name="description" content="TIL debugging Rails migrations">
   <meta name="author" content="emmanuel delgado">
 
   
@@ -78,45 +78,64 @@
 </div>
 
 
-
 <div class="pure-g">
     <div class="pure-u-1-24 pure-u-md-5-24"></div>
-	<div class="pure-u-11-12 pure-u-md-5-8">
-	  <p class="posts-name">Tags:</p>
+  <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
 
-	  <ul class="posts">
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	  </ul>
-	</div>
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2018-09-12</time>
+                
+                    
+                    |
+                    
+                    
+                    tags:<a href="//chischaschos.github.io/tags/til">til</a> <a href="//chischaschos.github.io/tags/notes">notes</a> 
+                    
+
+                    
+
+                    
+                </p>
+                <h1>TIL debugging Rails migrations</h1>
+            </div>
+
+            <div class="post-content">
+                
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+<li>If using references, the table you are referring to must already exists.</li>
+<li>You can debug migrations errors by looking at the issued statements in the logs.</li>
+<li><code>add_index</code>, <code>add_foreign_key</code> are more flexible than <code>t.references</code> and its <code>foreign_key</code> option.
+
+<ul>
+<li>.. but why?</li>
+</ul></li>
+<li>Docs <a href="https://api.rubyonrails.org/v4.2.8/">https://api.rubyonrails.org/v4.2.8/</a></li>
+<li>Docs <a href="https://dev.mysql.com/doc/refman/5.6/en/alter-table.html">https://dev.mysql.com/doc/refman/5.6/en/alter-table.html</a></li>
+</ul>
+
+                
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+
+s.src = '//chischaschos-rocks.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+            </div>
+        </div>
+  </div>
     <div class="pure-u-1-24 pure-u-md-1-6"></div>
 </div>
 

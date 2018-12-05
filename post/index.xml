@@ -6,10 +6,21 @@
     <description>Recent content in Posts on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Sep 2018 15:06:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 05 Dec 2018 10:00:00 -0700</lastBuildDate>
     
 	<atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TIL bundler binstubs with direnv</title>
+      <link>//chischaschos.github.io/post/bundler-binstubs-and-path/</link>
+      <pubDate>Wed, 05 Dec 2018 10:00:00 -0700</pubDate>
+      
+      <guid>//chischaschos.github.io/post/bundler-binstubs-and-path/</guid>
+      <description>Motivation I have this ruby project where I&amp;rsquo;m enforcing RuboCop and the way I do this is twofold:
+ by using a pre-commit hook that runs RuboCop altogether. and with neomake so I can see errors/warnings right on my editor.  Today I noticed that the reported errors/warnings in my editor and the command line are not the same. What happened here?
+Is it neomake issue? I noticed that I had different versions of rubocop installed, because of reasons different projects have different versions of RuboCop.</description>
+    </item>
     
     <item>
       <title>TIL debugging Rails migrations</title>

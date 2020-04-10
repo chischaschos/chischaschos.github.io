@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Talks on chischaschos rocks</title>
+    <title>talks on chischaschos rocks</title>
     <link>//chischaschos.github.io/categories/talks/</link>
-    <description>Recent content in Talks on chischaschos rocks</description>
+    <description>Recent content in talks on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Jun 2017 18:00:00 -0700</lastBuildDate>
@@ -28,7 +28,7 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
       <pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/fail-inc/</guid>
-      <description> Fail inc  </description>
+      <description>Fail inc  </description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
       <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/four-phases-test/</guid>
-      <description> WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     
@@ -47,7 +47,7 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
       <pubDate>Wed, 28 Oct 2015 21:13:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/wdt-legacy-apps/</guid>
-      <description> WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     
@@ -57,7 +57,7 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
       <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
-      <description> 2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
+      <description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
     </item>
     
     <item>
@@ -66,7 +66,7 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
       <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
-      <description> WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     

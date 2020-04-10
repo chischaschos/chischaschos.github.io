@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Coding on chischaschos rocks</title>
+    <title>coding on chischaschos rocks</title>
     <link>//chischaschos.github.io/tags/coding/</link>
-    <description>Recent content in Coding on chischaschos rocks</description>
+    <description>Recent content in coding on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Jun 2017 18:00:00 -0700</lastBuildDate>
@@ -29,9 +29,9 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
       
       <guid>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
       <description>Motivation Share my preferences.
- Books
- Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code  Practices
- exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank  Job Search</description>
+  Books
+ Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code    Practices
+ exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank    Job Search</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ Published in its own micro site at: https://chischaschos.github.io/approaching-l
 What is a Code retreat? The Coderetreat site says:
  Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.
  A Code retreat day is structured in two main parts:
-Setting context  A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description>
+Setting context A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description>
     </item>
     
     <item>
@@ -53,7 +53,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/four-phases-test/</guid>
-      <description> WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     
@@ -63,7 +63,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <pubDate>Wed, 28 Oct 2015 21:13:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/wdt-legacy-apps/</guid>
-      <description> WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     
@@ -73,7 +73,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
-      <description> 2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
+      <description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
     </item>
     
     <item>
@@ -82,7 +82,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
-      <description> WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     

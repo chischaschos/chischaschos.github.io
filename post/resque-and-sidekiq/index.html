@@ -30,7 +30,7 @@
   <script src="//chischaschos.github.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.42" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
 </head>
 <body>
@@ -89,53 +89,39 @@
             </div>
 
             <div class="post-content">
-                
-
-<h2 id="motivation">Motivation</h2>
-
+                <h2 id="motivation">Motivation</h2>
 <p>Some months ago, at an interview I got asked this:</p>
-
 <blockquote>
 <p>What would you use <a href="https://github.com/resque/resque">resque</a> or <a href="https://github.com/mperham/sidekiq">sidekiq</a> and why?</p>
 </blockquote>
-
 <p>My answer was something along the lines of:</p>
-
 <ul>
 <li>Sidekiq consumes less memory, so that sounds better.</li>
 <li>Both Resque and Sidekiq are stable and widely used in production.</li>
 <li>I&rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs.</li>
 <li>Before making my choice I would need to know the kind of background processing that we would do. I want to know if the jobs would be <a href="http://stackoverflow.com/questions/868568/what-do-the-terms-cpu-bound-and-i-o-bound-mean">IO bound or CPU bound</a>.</li>
 </ul>
-
 <p>I want this writing to be:</p>
-
 <ol>
 <li>A helper to uncover a better answer.</li>
 <li>A mental model and decision framework to help me make a choice the next time.</li>
 </ol>
-
 <h2 id="what-is-background-processing">What is background processing?</h2>
-
 <h2 id="what-the-internet-says-about-it">What the internet says about it?</h2>
-
 <h2 id="pros-and-cons">PROs and CONs</h2>
-
 <h2 id="how-your-problem-impacts-the-choice">How your problem impacts the choice</h2>
-
 <h2 id="mental-model-and-decision-frameworks">Mental model and decision frameworks</h2>
-
 <ul>
 <li><a href="https://hbr.org/2007/11/a-leaders-framework-for-decision-making">https://hbr.org/2007/11/a-leaders-framework-for-decision-making</a></li>
 <li><a href="https://mentalmodelsblog.wordpress.com/">https://mentalmodelsblog.wordpress.com/</a>
 <a href="http://mentalmodels.princeton.edu/about/what-are-mental-models/">http://mentalmodels.princeton.edu/about/what-are-mental-models/</a></li>
 </ul>
-
 <h2 id="todo">TODO</h2>
-
-<p>Review:
-- <a href="https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537">https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537</a>
-- <a href="http://www.thegeekstuff.com/2013/11/linux-process-and-threads/">http://www.thegeekstuff.com/2013/11/linux-process-and-threads/</a></p>
+<p>Review:</p>
+<ul>
+<li><a href="https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537">https://github.com/mperham/sidekiq/pull/2593#issuecomment-150316537</a></li>
+<li><a href="http://www.thegeekstuff.com/2013/11/linux-process-and-threads/">http://www.thegeekstuff.com/2013/11/linux-process-and-threads/</a></li>
+</ul>
 
                 
 <div id="disqus_thread"></div>

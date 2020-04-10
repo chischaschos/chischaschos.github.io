@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on chischaschos rocks</title>
@@ -6,12 +6,13 @@
     <description>Recent content in Categories on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 08 Sep 2018 13:46:00 -0700</lastBuildDate>
     
 	<atom:link href="//chischaschos.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Pending Research</title>
+      <title>pending-research</title>
       <link>//chischaschos.github.io/categories/pending-research/</link>
       <pubDate>Sat, 08 Sep 2018 13:46:00 -0700</pubDate>
       
@@ -20,7 +21,7 @@
     </item>
     
     <item>
-      <title>Talks</title>
+      <title>talks</title>
       <link>//chischaschos.github.io/categories/talks/</link>
       <pubDate>Tue, 13 Jun 2017 18:00:00 -0700</pubDate>
       

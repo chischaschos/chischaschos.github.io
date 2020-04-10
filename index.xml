@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chischaschos rocks</title>
@@ -6,10 +6,19 @@
     <description>Recent content on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Dec 2018 10:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 -0600</lastBuildDate>
     
 	<atom:link href="//chischaschos.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>about</title>
+      <link>//chischaschos.github.io/about/</link>
+      <pubDate>Fri, 10 Apr 2020 00:00:00 -0600</pubDate>
+      
+      <guid>//chischaschos.github.io/about/</guid>
+      <description>What I’m doing now I am Emmanuel Delgado, currently living in San Francisco, US. Solving problems at .</description>
+    </item>
     
     <item>
       <title>TIL bundler binstubs with direnv</title>
@@ -28,7 +37,7 @@ Is it neomake issue? I noticed that I had different versions of rubocop installe
       <pubDate>Wed, 12 Sep 2018 15:06:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/til-rails-migrations/</guid>
-      <description> Notes  If using references, the table you are referring to must already exists. You can debug migrations errors by looking at the issued statements in the logs. add_index, add_foreign_key are more flexible than t.references and its foreign_key option.  .. but why?  Docs https://api.rubyonrails.org/v4.2.8/ Docs https://dev.mysql.com/doc/refman/5.6/en/alter-table.html  </description>
+      <description>Notes  If using references, the table you are referring to must already exists. You can debug migrations errors by looking at the issued statements in the logs. add_index, add_foreign_key are more flexible than t.references and its foreign_key option.  .. but why?   Docs https://api.rubyonrails.org/v4.2.8/ Docs https://dev.mysql.com/doc/refman/5.6/en/alter-table.html  </description>
     </item>
     
     <item>
@@ -47,7 +56,7 @@ Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary wit
       <pubDate>Thu, 06 Sep 2018 09:28:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/debugging-tls/</guid>
-      <description> Notes  http://blog.fourthbit.com/2014/12/23/traffic-analysis-of-an-ssl-slash-tls-session https://danielmiessler.com/study/tcpdump/#host-ip https://tools.ietf.org/html/rfc5246#section-6.2.3 https://networkengineering.stackexchange.com/questions/20227/find-ssl-version-in-tcp-packets-in-established-tcp-connection  </description>
+      <description>Notes  http://blog.fourthbit.com/2014/12/23/traffic-analysis-of-an-ssl-slash-tls-session https://danielmiessler.com/study/tcpdump/#host-ip https://tools.ietf.org/html/rfc5246#section-6.2.3 https://networkengineering.stackexchange.com/questions/20227/find-ssl-version-in-tcp-packets-in-established-tcp-connection  </description>
     </item>
     
     <item>
@@ -58,18 +67,6 @@ Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary wit
       <guid>//chischaschos.github.io/post/percent-enconding-in-ruby/</guid>
       <description>Motivation Document what options exist in Ruby whenever in I want to do Percent-Encoding.
 What is Percent Encoding?  A. K. A. URL encoding. Used to create URIs (both URLs and URNs). Used to prepare data of the application/x-www-form-urlencoded media type. There is a reserved character set: !*&#39;();:@&amp;amp;=+$,/?#[]  What do we have in the Ruby library? References -URI.escape vs CGI::escape</description>
-    </item>
-    
-    <item>
-      <title>about</title>
-      <link>//chischaschos.github.io/about/</link>
-      <pubDate>Sun, 20 Aug 2017 00:00:00 -0600</pubDate>
-      
-      <guid>//chischaschos.github.io/about/</guid>
-      <description> What I’m doing now I am Emmanuel Delgado, currently living in San Francisco, US. I am investing my time in:
- Developing Software in Juvo  If my activities change, I’ll update this page. Last update was in April 2018.
- CREDIT: I stole the idea for this page from Gregory Brown and Derek Sivers.
- </description>
     </item>
     
     <item>
@@ -113,9 +110,11 @@ End result This world is built and feed with fake-messaging-app-pg. I expect to 
       <guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid>
       <description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
 What is graphql  http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve  There is graphql in different languages such as golang, nodejs and ruby among others.
- Ruby
- https://github.com/rmosolgo/graphql-ruby https://github.com/Shopify/graphql-batch  Nodejs
- Join Monster video Join Monster repo DataLoader   Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
+  Ruby
+  https://github.com/rmosolgo/graphql-ruby
+  https://github.com/Shopify/graphql-batch
+  Nodejs
+ Join Monster video Join Monster repo DataLoader    Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
     </item>
     
     <item>
@@ -136,9 +135,9 @@ This morning the test headless test suite started failing with:
       
       <guid>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
       <description>Motivation Share my preferences.
- Books
- Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code  Practices
- exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank  Job Search</description>
+  Books
+ Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code    Practices
+ exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank    Job Search</description>
     </item>
     
     <item>
@@ -151,7 +150,7 @@ This morning the test headless test suite started failing with:
 What is a Code retreat? The Coderetreat site says:
  Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.
  A Code retreat day is structured in two main parts:
-Setting context  A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description>
+Setting context A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description>
     </item>
     
     <item>
@@ -172,7 +171,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/fail-inc/</guid>
-      <description> Fail inc  </description>
+      <description>Fail inc  </description>
     </item>
     
     <item>
@@ -181,7 +180,7 @@ Setting context  A previously chosen exercise is explained to the audience, most
       <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/four-phases-test/</guid>
-      <description> WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     
@@ -201,7 +200,7 @@ What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phas
       <pubDate>Wed, 28 Oct 2015 21:13:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/wdt-legacy-apps/</guid>
-      <description> WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     
@@ -211,7 +210,7 @@ What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phas
       <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
-      <description> 2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
+      <description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
     </item>
     
     <item>
@@ -220,7 +219,7 @@ What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phas
       <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
-      <description> WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     

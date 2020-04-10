@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pending Research on chischaschos rocks</title>
+    <title>pending-research on chischaschos rocks</title>
     <link>//chischaschos.github.io/categories/pending-research/</link>
-    <description>Recent content in Pending Research on chischaschos rocks</description>
+    <description>Recent content in pending-research on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Sep 2018 13:46:00 -0700</lastBuildDate>
@@ -29,9 +29,11 @@ Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary wit
       <guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid>
       <description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
 What is graphql  http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve  There is graphql in different languages such as golang, nodejs and ruby among others.
- Ruby
- https://github.com/rmosolgo/graphql-ruby https://github.com/Shopify/graphql-batch  Nodejs
- Join Monster video Join Monster repo DataLoader   Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
+  Ruby
+  https://github.com/rmosolgo/graphql-ruby
+  https://github.com/Shopify/graphql-batch
+  Nodejs
+ Join Monster video Join Monster repo DataLoader    Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
     </item>
     
     <item>

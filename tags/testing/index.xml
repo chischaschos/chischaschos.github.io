@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Testing on chischaschos rocks</title>
+    <title>testing on chischaschos rocks</title>
     <link>//chischaschos.github.io/tags/testing/</link>
-    <description>Recent content in Testing on chischaschos rocks</description>
+    <description>Recent content in testing on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 24 Feb 2016 18:00:00 -0700</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/four-phases-test/</guid>
-      <description> WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     

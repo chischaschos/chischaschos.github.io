@@ -30,7 +30,7 @@
   <script src="//chischaschos.github.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.42" />
+  <meta name="generator" content="Hugo 0.64.1" />
   
 </head>
 <body>
@@ -87,27 +87,15 @@
             </div>
 
             <div class="post-content">
-                
-
-<h2 id="objective">Objective</h2>
-
+                <h2 id="objective">Objective</h2>
 <p>Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.</p>
-
 <h2 id="end-result">End result</h2>
-
 <p>This world is built and feed with <a href="https://github.com/chischaschos/fake-messaging-app-pg">fake-messaging-app-pg</a>. I expect to keep changing it but I can call the first iteration completed.</p>
-
 <h2 id="lessons-learned">Lessons learned</h2>
-
-<h3 id="shebangs-https-en-wikipedia-org-wiki-shebang-unix"><a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Shebangs</a></h3>
-
+<h3 id="shebangshttpsenwikipediaorgwikishebang_unix"><a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">Shebangs</a></h3>
 <p>I put it at the beginning of my script, but why?</p>
-
-<pre><code>  #!/usr/bin/env sh
-</code></pre>
-
-<p>So after some wikipedia this is what I got:</p>
-
+<pre><code>#!/usr/bin/env sh
+</code></pre><p>So after some wikipedia this is what I got:</p>
 <ul>
 <li>It is for Unix-like operating systems.</li>
 <li>The <a href="https://en.wikipedia.org/wiki/Loader_(computing)"><em>program loader</em></a> parses the rest of the script as an <a href="https://en.wikipedia.org/wiki/Interpreter_directive"><em>interpreter directive</em></a>. The specified interpreter program is run instead passing to it the path initially used.</li>
@@ -115,85 +103,69 @@
 <li>It&rsquo;s syntax is <code>#!interpreter [optional-arg]</code> accepting at most one argument.</li>
 <li>It is a <a href="https://en.wikipedia.org/wiki/Magic_number_(programming)"><em>magic number</em></a>, <code>0x23 0x21</code>, the two-character encoding in ASCII of <code>#!</code>.</li>
 </ul>
-
 <h2 id="bash-variables">Bash variables</h2>
-
 <ul>
-<li>First, there are many ways to do it.</li>
-<li>They can be lower case, or upper case.</li>
-
-<li><p>When you define one do not put spaces around the <code>=</code>:</p>
-
-<pre><code class="language-bash">a = asdf # won't work
-a=asdf   # works
-</code></pre></li>
-
-<li><p>Remember to use them by prefixing them with a <code>$</code>:</p>
-
-<pre><code class="language-bash">a=asdf
+<li>
+<p>First, there are many ways to do it.</p>
+</li>
+<li>
+<p>They can be lower case, or upper case.</p>
+</li>
+<li>
+<p>When you define one do not put spaces around the <code>=</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">a <span style="color:#f92672">=</span> asdf <span style="color:#75715e"># won&#39;t work</span>
+a<span style="color:#f92672">=</span>asdf   <span style="color:#75715e"># works</span>
+</code></pre></div></li>
+<li>
+<p>Remember to use them by prefixing them with a <code>$</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">a<span style="color:#f92672">=</span>asdf
 echo $a
-</code></pre></li>
-
-<li><p>One way to create a multi line string is by using <a href="http://tldp.org/LDP/abs/html/here-docs.html">here-docs</a> and <a href="https://ss64.com/bash/read.html">read</a>. <code>read</code> can receive a delimiter <code>-d ''</code> and maybe avoiding backslash as scape character <code>-r</code>:</p>
-
-<pre><code class="language-bash">read -d '' -r command &lt;&lt;COMMAND
-hi
-there
-COMMAND
-</code></pre></li>
+</code></pre></div></li>
+<li>
+<p>One way to create a multi line string is by using <a href="http://tldp.org/LDP/abs/html/here-docs.html">here-docs</a> and <a href="https://ss64.com/bash/read.html">read</a>. <code>read</code> can receive a delimiter <code>-d ''</code> and maybe avoiding backslash as scape character <code>-r</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">read -d <span style="color:#e6db74">&#39;&#39;</span> -r command <span style="color:#e6db74">&lt;&lt;COMMAND
+</span><span style="color:#e6db74">hi
+</span><span style="color:#e6db74">there
+</span><span style="color:#e6db74">COMMAND</span>
+</code></pre></div></li>
 </ul>
-
 <h2 id="ruby-syntax">Ruby syntax</h2>
-
 <p>When passing a block and invoking a single method in that block as in:</p>
-
-<pre><code class="language-ruby">  conn.exec_prepared('insert_users_groups', [group_id, baseuser.id]) do |result|
-    result.check
-  end
-</code></pre>
-
-<p>You can instead do:</p>
-
-<pre><code class="language-ruby">  conn.exec_prepared('insert_users_groups', [group_id, baseuser.id], :&amp;check)
-</code></pre>
-
-<h2 id="ruby-pg-interface">Ruby pg interface</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">conn<span style="color:#f92672">.</span>exec_prepared(<span style="color:#e6db74">&#39;insert_users_groups&#39;</span>, <span style="color:#f92672">[</span>group_id, baseuser<span style="color:#f92672">.</span>id<span style="color:#f92672">]</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>result<span style="color:#f92672">|</span>
+  result<span style="color:#f92672">.</span>check
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>You can instead do:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">conn<span style="color:#f92672">.</span>exec_prepared(<span style="color:#e6db74">&#39;insert_users_groups&#39;</span>, <span style="color:#f92672">[</span>group_id, baseuser<span style="color:#f92672">.</span>id<span style="color:#f92672">]</span>, <span style="color:#e6db74">:&amp;</span>check)
+</code></pre></div><h2 id="ruby-pg-interface">Ruby pg interface</h2>
 <p>This was a good opportunity to learn more about the <a href="https://rubygems.org/gems/pg/versions/0.18.4">pg</a> gem.</p>
-
 <ul>
-<li><p>Do a local connection with:</p>
-
-<pre><code class="language-ruby">conn = PG.connect('dbname=fake_messaging_app')
-</code></pre></li>
-
-<li><p>Create prepared statements with:</p>
-
-<pre><code class="language-ruby">conn.prepare('insert_users', 'insert into users (name) values ($1)', &amp;:check)
-</code></pre></li>
-
-<li><p>Execute prepared statements with:</p>
-
-<pre><code class="language-ruby">conn.exec_prepared('insert_users', [Faker::Name.name], &amp;:check)
-</code></pre></li>
-
-<li><p>Execute statements with:</p>
-
-<pre><code class="language-ruby">conn.exec('select group_id as g, count(*) as c from users_groups group by 1 order by 1')
-</code></pre></li>
-
-<li><p>Results are <a href="https://deveiate.org/code/pg/PG/Result.html">PG::Result</a>, iterate them with:</p>
-
-<pre><code class="language-ruby">result.map { |row| row['g'] }
-</code></pre></li>
-
-<li><p>Decode postgresql array strings with <a href="https://deveiate.org/code/pg/PG/TextDecoder/Array.html">PG::TextDecoder</a> as in:</p>
-
-<pre><code class="language-ruby">conn.exec('select array_agg(member_id) as mids from users_groups where group_id = $1', [group_id]) do |result|
-decoder = PG::TextDecoder::Array.new
-result.map { |row| decoder.decode(row['mids']).map(&amp;:to_i) }.first
-end
-</code></pre></li>
+<li>
+<p>Do a local connection with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">conn <span style="color:#f92672">=</span> <span style="color:#66d9ef">PG</span><span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#39;dbname=fake_messaging_app&#39;</span>)
+</code></pre></div></li>
+<li>
+<p>Create prepared statements with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">conn<span style="color:#f92672">.</span>prepare(<span style="color:#e6db74">&#39;insert_users&#39;</span>, <span style="color:#e6db74">&#39;insert into users (name) values ($1)&#39;</span>, <span style="color:#f92672">&amp;</span><span style="color:#e6db74">:check</span>)
+</code></pre></div></li>
+<li>
+<p>Execute prepared statements with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">conn<span style="color:#f92672">.</span>exec_prepared(<span style="color:#e6db74">&#39;insert_users&#39;</span>, <span style="color:#f92672">[</span><span style="color:#66d9ef">Faker</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Name</span><span style="color:#f92672">.</span>name<span style="color:#f92672">]</span>, <span style="color:#f92672">&amp;</span><span style="color:#e6db74">:check</span>)
+</code></pre></div></li>
+<li>
+<p>Execute statements with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">conn<span style="color:#f92672">.</span>exec(<span style="color:#e6db74">&#39;select group_id as g, count(*) as c from users_groups group by 1 order by 1&#39;</span>)
+</code></pre></div></li>
+<li>
+<p>Results are <a href="https://deveiate.org/code/pg/PG/Result.html">PG::Result</a>, iterate them with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">result<span style="color:#f92672">.</span>map { <span style="color:#f92672">|</span>row<span style="color:#f92672">|</span> row<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;g&#39;</span><span style="color:#f92672">]</span> }
+</code></pre></div></li>
+<li>
+<p>Decode postgresql array strings with <a href="https://deveiate.org/code/pg/PG/TextDecoder/Array.html">PG::TextDecoder</a> as in:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"> conn<span style="color:#f92672">.</span>exec(<span style="color:#e6db74">&#39;select array_agg(member_id) as mids from users_groups where group_id = $1&#39;</span>, <span style="color:#f92672">[</span>group_id<span style="color:#f92672">]</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>result<span style="color:#f92672">|</span>
+  decoder <span style="color:#f92672">=</span> <span style="color:#66d9ef">PG</span><span style="color:#f92672">::</span><span style="color:#66d9ef">TextDecoder</span><span style="color:#f92672">::</span>Array<span style="color:#f92672">.</span>new
+  result<span style="color:#f92672">.</span>map { <span style="color:#f92672">|</span>row<span style="color:#f92672">|</span> decoder<span style="color:#f92672">.</span>decode(row<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;mids&#39;</span><span style="color:#f92672">]</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_i</span>) }<span style="color:#f92672">.</span>first
+<span style="color:#66d9ef">end</span>
+</code></pre></div></li>
 </ul>
 
                 

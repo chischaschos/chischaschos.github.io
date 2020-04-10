@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sinatra on chischaschos rocks</title>
+    <title>sinatra on chischaschos rocks</title>
     <link>//chischaschos.github.io/tags/sinatra/</link>
-    <description>Recent content in Sinatra on chischaschos rocks</description>
+    <description>Recent content in sinatra on chischaschos rocks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Aug 2015 18:00:00 -0700</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
       
       <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
-      <description> WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
+      <description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
  </description>
     </item>
     

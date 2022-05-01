@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bash on chischaschos rocks</title>
-    <link>//chischaschos.github.io/tags/bash/</link>
-    <description>Recent content in bash on chischaschos rocks</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 29 May 2017 23:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//chischaschos.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Lessons learned from creating a postgresql data playground</title>
-      <link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link>
-      <pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid>
-      <description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
-End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bash on chischaschos rocks</title><link>//chischaschos.github.io/tags/bash/</link><description>Recent content in bash on chischaschos rocks</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 29 May 2017 23:00:00 -0700</lastBuildDate><atom:link href="//chischaschos.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Lessons learned from creating a postgresql data playground</title><link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link><pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid><description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
+End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description></item></channel></rss>

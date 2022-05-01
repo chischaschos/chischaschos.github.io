@@ -1,218 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on chischaschos rocks</title>
-    <link>//chischaschos.github.io/post/</link>
-    <description>Recent content in Posts on chischaschos rocks</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 05 Dec 2018 10:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>TIL bundler binstubs with direnv</title>
-      <link>//chischaschos.github.io/post/bundler-binstubs-and-path/</link>
-      <pubDate>Wed, 05 Dec 2018 10:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/bundler-binstubs-and-path/</guid>
-      <description>Motivation I have this ruby project where I&amp;rsquo;m enforcing RuboCop and the way I do this is twofold:
- by using a pre-commit hook that runs RuboCop altogether. and with neomake so I can see errors/warnings right on my editor.  Today I noticed that the reported errors/warnings in my editor and the command line are not the same. What happened here?
-Is it neomake issue? I noticed that I had different versions of rubocop installed, because of reasons different projects have different versions of RuboCop.</description>
-    </item>
-    
-    <item>
-      <title>TIL debugging Rails migrations</title>
-      <link>//chischaschos.github.io/post/til-rails-migrations/</link>
-      <pubDate>Wed, 12 Sep 2018 15:06:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/til-rails-migrations/</guid>
-      <description>Notes  If using references, the table you are referring to must already exists. You can debug migrations errors by looking at the issued statements in the logs. add_index, add_foreign_key are more flexible than t.references and its foreign_key option.  .. but why?   Docs https://api.rubyonrails.org/v4.2.8/ Docs https://dev.mysql.com/doc/refman/5.6/en/alter-table.html  </description>
-    </item>
-    
-    <item>
-      <title>Object Oriented Programming and Services</title>
-      <link>//chischaschos.github.io/post/oop-and-services/</link>
-      <pubDate>Sat, 08 Sep 2018 13:46:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/oop-and-services/</guid>
-      <description>Motivation  What is a service? Who defines it? What contexts can services live in? Services best practices around naming and design.  Eric Evan&amp;rsquo;s Domain driven design Service, when an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement these operations in services. See also Service (systems architecture).
-Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary with a layer of services that establishes a set of available operations and coordinates the application&amp;rsquo;s response in each operation.</description>
-    </item>
-    
-    <item>
-      <title>TIL debugging TLS</title>
-      <link>//chischaschos.github.io/post/debugging-tls/</link>
-      <pubDate>Thu, 06 Sep 2018 09:28:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/debugging-tls/</guid>
-      <description>Notes  http://blog.fourthbit.com/2014/12/23/traffic-analysis-of-an-ssl-slash-tls-session https://danielmiessler.com/study/tcpdump/#host-ip https://tools.ietf.org/html/rfc5246#section-6.2.3 https://networkengineering.stackexchange.com/questions/20227/find-ssl-version-in-tcp-packets-in-established-tcp-connection  </description>
-    </item>
-    
-    <item>
-      <title>TIL percentage encoding in ruby</title>
-      <link>//chischaschos.github.io/post/percent-enconding-in-ruby/</link>
-      <pubDate>Mon, 23 Apr 2018 13:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/percent-enconding-in-ruby/</guid>
-      <description>Motivation Document what options exist in Ruby whenever in I want to do Percent-Encoding.
-What is Percent Encoding?  A. K. A. URL encoding. Used to create URIs (both URLs and URNs). Used to prepare data of the application/x-www-form-urlencoded media type. There is a reserved character set: !*&#39;();:@&amp;amp;=+$,/?#[]  What do we have in the Ruby library? References -URI.escape vs CGI::escape</description>
-    </item>
-    
-    <item>
-      <title>Fog City Ruby&#39;s Approaching a legacy application</title>
-      <link>//chischaschos.github.io/post/fog-city-ruby-legacy-apps/</link>
-      <pubDate>Tue, 13 Jun 2017 18:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/fog-city-ruby-legacy-apps/</guid>
-      <description>Fog City Ruby&amp;rsquo;s Approaching a legacy application Exposed at Fog City Ruby on June 13, 2017.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on chischaschos rocks</title><link>//chischaschos.github.io/post/</link><description>Recent content in Posts on chischaschos rocks</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 16 Apr 2020 00:00:00 -0700</lastBuildDate><atom:link href="//chischaschos.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>LLDB debugging with Ruby</title><link>//chischaschos.github.io/post/lldb-debugging-ruby/</link><pubDate>Thu, 16 Apr 2020 00:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/lldb-debugging-ruby/</guid><description>Motivation and background References https://christoph.luppri.ch/articles/ruby/debugging-ruby-programs-on-osx-with-lldb</description></item><item><title>TIL bundler binstubs with direnv</title><link>//chischaschos.github.io/post/bundler-binstubs-and-path/</link><pubDate>Wed, 05 Dec 2018 10:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/bundler-binstubs-and-path/</guid><description>Motivation I have this ruby project where I&amp;rsquo;m enforcing RuboCop and the way I do this is twofold:
+by using a pre-commit hook that runs RuboCop altogether. and with neomake so I can see errors/warnings right on my editor. Today I noticed that the reported errors/warnings in my editor and the command line are not the same. What happened here?
+Is it neomake issue? I noticed that I had different versions of rubocop installed, because of reasons different projects have different versions of RuboCop.</description></item><item><title>TIL debugging Rails migrations</title><link>//chischaschos.github.io/post/til-rails-migrations/</link><pubDate>Wed, 12 Sep 2018 15:06:00 -0700</pubDate><guid>//chischaschos.github.io/post/til-rails-migrations/</guid><description>Notes If using references, the table you are referring to must already exists. You can debug migrations errors by looking at the issued statements in the logs. add_index, add_foreign_key are more flexible than t.references and its foreign_key option. .. but why? Docs https://api.rubyonrails.org/v4.2.8/ Docs https://dev.mysql.com/doc/refman/5.6/en/alter-table.html</description></item><item><title>Object Oriented Programming and Services</title><link>//chischaschos.github.io/post/oop-and-services/</link><pubDate>Sat, 08 Sep 2018 13:46:00 -0700</pubDate><guid>//chischaschos.github.io/post/oop-and-services/</guid><description>Motivation What is a service? Who defines it? What contexts can services live in? Services best practices around naming and design. Eric Evan&amp;rsquo;s Domain driven design Service, when an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement these operations in services. See also Service (systems architecture).
+Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary with a layer of services that establishes a set of available operations and coordinates the application&amp;rsquo;s response in each operation.</description></item><item><title>TIL debugging TLS</title><link>//chischaschos.github.io/post/debugging-tls/</link><pubDate>Thu, 06 Sep 2018 09:28:00 -0700</pubDate><guid>//chischaschos.github.io/post/debugging-tls/</guid><description>Notes http://blog.fourthbit.com/2014/12/23/traffic-analysis-of-an-ssl-slash-tls-session https://danielmiessler.com/study/tcpdump/#host-ip https://tools.ietf.org/html/rfc5246#section-6.2.3 https://networkengineering.stackexchange.com/questions/20227/find-ssl-version-in-tcp-packets-in-established-tcp-connection</description></item><item><title>Argument Hash for a String#scan</title><link>//chischaschos.github.io/post/string-scan-with-hash/</link><pubDate>Mon, 23 Apr 2018 13:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/string-scan-with-hash/</guid><description>Check how this person used scan on a hash values https://exercism.io/tracks/ruby/exercises/scrabble-score/solutions/14220b7319e643d4990f38875830a2a5</description></item><item><title>TIL percentage encoding in ruby</title><link>//chischaschos.github.io/post/percent-enconding-in-ruby/</link><pubDate>Mon, 23 Apr 2018 13:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/percent-enconding-in-ruby/</guid><description>Motivation Document what options exist in Ruby whenever in I want to do Percent-Encoding.
+What is Percent Encoding? A. K. A. URL encoding. Used to create URIs (both URLs and URNs). Used to prepare data of the application/x-www-form-urlencoded media type. There is a reserved character set: !*'();:@&amp;amp;=+$,/?#[] What do we have in the Ruby library? References -URI.escape vs CGI::escape</description></item><item><title>Fog City Ruby's Approaching a legacy application</title><link>//chischaschos.github.io/post/fog-city-ruby-legacy-apps/</link><pubDate>Tue, 13 Jun 2017 18:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/fog-city-ruby-legacy-apps/</guid><description>Fog City Ruby&amp;rsquo;s Approaching a legacy application Exposed at Fog City Ruby on June 13, 2017.
 This talk is my attempt on improving the original talk applying what I learned after two years condensed in 18 minutes.
-Published in its own micro site at: https://chischaschos.github.io/approaching-legacy-systems</description>
-    </item>
-    
-    <item>
-      <title>Learning window functions with postgresql</title>
-      <link>//chischaschos.github.io/post/learning-window-functions-with-postgresql/</link>
-      <pubDate>Sat, 03 Jun 2017 03:15:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/learning-window-functions-with-postgresql/</guid>
-      <description>Objective Learn what window functions are and how they are used.
+Published in its own micro site at: https://chischaschos.github.io/approaching-legacy-systems</description></item><item><title>Learning window functions with postgresql</title><link>//chischaschos.github.io/post/learning-window-functions-with-postgresql/</link><pubDate>Sat, 03 Jun 2017 03:15:00 -0700</pubDate><guid>//chischaschos.github.io/post/learning-window-functions-with-postgresql/</guid><description>Objective Learn what window functions are and how they are used.
 This example uses the fake messaging app playgroung. What we are going to do is to get the messages from groups a user is part of, only the top 3 messages of each group sorted by creation date are returned.
 This blog is written using commit cf971929380a91730dffb9b87177f664bd87aa1a of the fake messaging app playground.
-An example use case What we are going to do is to obtain the latest 3 messages a user has from each group.</description>
-    </item>
-    
-    <item>
-      <title>Lessons learned from creating a postgresql data playground</title>
-      <link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link>
-      <pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid>
-      <description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
-End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description>
-    </item>
-    
-    <item>
-      <title>The Quest to learn GraphQL</title>
-      <link>//chischaschos.github.io/post/the-quest-to-learn-graphql/</link>
-      <pubDate>Tue, 02 May 2017 13:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid>
-      <description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
-What is graphql  http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve  There is graphql in different languages such as golang, nodejs and ruby among others.
-  Ruby
-  https://github.com/rmosolgo/graphql-ruby
-  https://github.com/Shopify/graphql-batch
-  Nodejs
- Join Monster video Join Monster repo DataLoader    Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
-    </item>
-    
-    <item>
-      <title>Debugging guard-jasmine error</title>
-      <link>//chischaschos.github.io/post/debugging-guard-jasmine-error/</link>
-      <pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
-      <description>Motivation I&amp;rsquo;m working on a project that uses guard-jasmine (1.19.2). For a number reasons I can&amp;rsquo;t upgrade it yet.
+An example use case What we are going to do is to obtain the latest 3 messages a user has from each group.</description></item><item><title>Lessons learned from creating a postgresql data playground</title><link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link><pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid><description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
+End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description></item><item><title>The Quest to learn GraphQL</title><link>//chischaschos.github.io/post/the-quest-to-learn-graphql/</link><pubDate>Tue, 02 May 2017 13:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid><description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
+What is graphql http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve There is graphql in different languages such as golang, nodejs and ruby among others.
+Ruby
+https://github.com/rmosolgo/graphql-ruby
+https://github.com/Shopify/graphql-batch
+Nodejs
+Join Monster video Join Monster repo DataLoader Who uses it? Shopify Github Facebook Performance Can we get a sense on how to measure it or what to expect?</description></item><item><title>Debugging guard-jasmine error</title><link>//chischaschos.github.io/post/debugging-guard-jasmine-error/</link><pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate><guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid><description>Motivation I&amp;rsquo;m working on a project that uses guard-jasmine (1.19.2). For a number reasons I can&amp;rsquo;t upgrade it yet.
 This morning the test headless test suite started failing with:
-➜ bundle exec guard-jasmine Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off). Waiting for Jasmine test runner at http://localhost:58583/jasmine Run all Jasmine suites Run Jasmine suite at http://localhost:58583/jasmine 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.</description>
-    </item>
-    
-    <item>
-      <title>Preferred learning resources around Software Development</title>
-      <link>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</link>
-      <pubDate>Tue, 23 Aug 2016 08:39:20 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid>
-      <description>Motivation Share my preferences.
-  Books
- Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code    Practices
- exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank    Job Search</description>
-    </item>
-    
-    <item>
-      <title>Self Code Retreat</title>
-      <link>//chischaschos.github.io/post/self-code-retreat-game-of-life/</link>
-      <pubDate>Mon, 22 Aug 2016 14:47:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/self-code-retreat-game-of-life/</guid>
-      <description>Motivation I&amp;rsquo;ve been lucky to participate in many Coderetreats and I want to do a small coding practice that keeps the same feeling.
+➜ bundle exec guard-jasmine Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off). Waiting for Jasmine test runner at http://localhost:58583/jasmine Run all Jasmine suites Run Jasmine suite at http://localhost:58583/jasmine 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.</description></item><item><title>Preferred learning resources around Software Development</title><link>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</link><pubDate>Tue, 23 Aug 2016 08:39:20 -0700</pubDate><guid>//chischaschos.github.io/post/preferred-learning-resources-around-software-development/</guid><description>Motivation Share my preferences.
+Books
+Practical Object Oriented Design in Ruby Agile Software Development, Principles, Patterns, and Practices Head First Object-Oriented Analysis and Design Clean Code The Clean Coder The Passionate Programmer The Senior Software Engineer Soft Skills Practical Vim Domain Driven Design Patterns of Enterprise Application Architecture Head First Design Patterns Refactoring: Ruby Edition Working Effectively With Legacy Code Practices
+exercism.io Coderetreats Code Katas Vim Adventures Vim Golf Learn touch typing Hacker Rank Job Search</description></item><item><title>Self Code Retreat</title><link>//chischaschos.github.io/post/self-code-retreat-game-of-life/</link><pubDate>Mon, 22 Aug 2016 14:47:00 -0700</pubDate><guid>//chischaschos.github.io/post/self-code-retreat-game-of-life/</guid><description>Motivation I&amp;rsquo;ve been lucky to participate in many Coderetreats and I want to do a small coding practice that keeps the same feeling.
 What is a Code retreat? The Coderetreat site says:
- Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.
- A Code retreat day is structured in two main parts:
-Setting context A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description>
-    </item>
-    
-    <item>
-      <title>Resque and Sidekiq as of August 2016</title>
-      <link>//chischaschos.github.io/post/resque-and-sidekiq/</link>
-      <pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid>
-      <description>Motivation Some months ago, at an interview I got asked this:
- What would you use resque or sidekiq and why?
- My answer was something along the lines of:
- Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description>
-    </item>
-    
-    <item>
-      <title>Fail inc</title>
-      <link>//chischaschos.github.io/post/fail-inc/</link>
-      <pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/fail-inc/</guid>
-      <description>Fail inc  </description>
-    </item>
-    
-    <item>
-      <title>WDT&#39;s Four Phases Tests</title>
-      <link>//chischaschos.github.io/post/four-phases-test/</link>
-      <pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/four-phases-test/</guid>
-      <description>WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).
- </description>
-    </item>
-    
-    <item>
-      <title>RSpec and the Four Phase Tests</title>
-      <link>//chischaschos.github.io/post/rspec-antipatterns/</link>
-      <pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate>
-      
-      <guid>//chischaschos.github.io/post/rspec-antipatterns/</guid>
-      <description>Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
-What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/  Notes  let may be lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description>
-    </item>
-    
-    <item>
-      <title>WDT&#39;s Approaching a legacy application</title>
-      <link>//chischaschos.github.io/post/wdt-legacy-apps/</link>
-      <pubDate>Wed, 28 Oct 2015 21:13:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/wdt-legacy-apps/</guid>
-      <description>WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).
- </description>
-    </item>
-    
-    <item>
-      <title>2011 Magma Rails&#39;s Object Oriented Design and Patterns</title>
-      <link>//chischaschos.github.io/post/object-oriented-design-and-patterns/</link>
-      <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
-      <description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
-    </item>
-    
-    <item>
-      <title>WDT&#39;s Sinatra: De nada a TODO</title>
-      <link>//chischaschos.github.io/post/sinatra-todo/</link>
-      <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
-      <description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
- </description>
-    </item>
-    
-  </channel>
-</rss>
+Coderetreat is a day-long, intensive practice event, focusing on the fundamentals of software development and design.
+A Code retreat day is structured in two main parts:
+Setting context A previously chosen exercise is explained to the audience, most of the times the chosen exercise is Conway&amp;rsquo;s Game of Life.</description></item><item><title>Resque and Sidekiq as of August 2016</title><link>//chischaschos.github.io/post/resque-and-sidekiq/</link><pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate><guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid><description>Motivation Some months ago, at an interview I got asked this:
+What would you use resque or sidekiq and why?
+My answer was something along the lines of:
+Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description></item><item><title>Fail inc</title><link>//chischaschos.github.io/post/fail-inc/</link><pubDate>Thu, 31 Mar 2016 05:42:00 -0700</pubDate><guid>//chischaschos.github.io/post/fail-inc/</guid><description>Fail inc</description></item><item><title>WDT's Four Phases Tests</title><link>//chischaschos.github.io/post/four-phases-test/</link><pubDate>Wed, 24 Feb 2016 18:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/four-phases-test/</guid><description>WDT&amp;rsquo;s Four Phases Tests A talk about Four-Phase Test for Web Dev Talks Mexico (WDT).</description></item><item><title>RSpec and the Four Phase Tests</title><link>//chischaschos.github.io/post/rspec-antipatterns/</link><pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate><guid>//chischaschos.github.io/post/rspec-antipatterns/</guid><description>Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
+What the internet says about it? https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/ Notes let may be lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description></item><item><title>WDT's Approaching a legacy application</title><link>//chischaschos.github.io/post/wdt-legacy-apps/</link><pubDate>Wed, 28 Oct 2015 21:13:00 -0700</pubDate><guid>//chischaschos.github.io/post/wdt-legacy-apps/</guid><description>WDT&amp;rsquo;s Approaching a legacy application Another talk for Web Dev Talks Mexico (WDT).</description></item><item><title>2011 Magma Rails's Object Oriented Design and Patterns</title><link>//chischaschos.github.io/post/object-oriented-design-and-patterns/</link><pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid><description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns</description></item><item><title>WDT's Sinatra: De nada a TODO</title><link>//chischaschos.github.io/post/sinatra-todo/</link><pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/sinatra-todo/</guid><description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).</description></item></channel></rss>

@@ -1,67 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ruby on chischaschos rocks</title>
-    <link>//chischaschos.github.io/tags/ruby/</link>
-    <description>Recent content in ruby on chischaschos rocks</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 29 May 2017 23:00:00 -0700</lastBuildDate>
-    
-	<atom:link href="//chischaschos.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Lessons learned from creating a postgresql data playground</title>
-      <link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link>
-      <pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid>
-      <description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
-End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description>
-    </item>
-    
-    <item>
-      <title>Debugging guard-jasmine error</title>
-      <link>//chischaschos.github.io/post/debugging-guard-jasmine-error/</link>
-      <pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid>
-      <description>Motivation I&amp;rsquo;m working on a project that uses guard-jasmine (1.19.2). For a number reasons I can&amp;rsquo;t upgrade it yet.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ruby on chischaschos rocks</title><link>//chischaschos.github.io/tags/ruby/</link><description>Recent content in ruby on chischaschos rocks</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 29 May 2017 23:00:00 -0700</lastBuildDate><atom:link href="//chischaschos.github.io/tags/ruby/index.xml" rel="self" type="application/rss+xml"/><item><title>Lessons learned from creating a postgresql data playground</title><link>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</link><pubDate>Mon, 29 May 2017 23:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/lessons-learned-from-creating-a-postgresql-data-playground/</guid><description>Objective Create a script that produces a postgresql database. The structure will be fixed and the contents of the db may vary. The shape of the data should be mostly the same so that every time I rebuild the db I can expect similar queries across rebuilds to output similar data.
+End result This world is built and feed with fake-messaging-app-pg. I expect to keep changing it but I can call the first iteration completed.</description></item><item><title>Debugging guard-jasmine error</title><link>//chischaschos.github.io/post/debugging-guard-jasmine-error/</link><pubDate>Tue, 27 Sep 2016 11:11:11 -0700</pubDate><guid>//chischaschos.github.io/post/debugging-guard-jasmine-error/</guid><description>Motivation I&amp;rsquo;m working on a project that uses guard-jasmine (1.19.2). For a number reasons I can&amp;rsquo;t upgrade it yet.
 This morning the test headless test suite started failing with:
-➜ bundle exec guard-jasmine Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off). Waiting for Jasmine test runner at http://localhost:58583/jasmine Run all Jasmine suites Run Jasmine suite at http://localhost:58583/jasmine 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.</description>
-    </item>
-    
-    <item>
-      <title>Resque and Sidekiq as of August 2016</title>
-      <link>//chischaschos.github.io/post/resque-and-sidekiq/</link>
-      <pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid>
-      <description>Motivation Some months ago, at an interview I got asked this:
- What would you use resque or sidekiq and why?
- My answer was something along the lines of:
- Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description>
-    </item>
-    
-    <item>
-      <title>2011 Magma Rails&#39;s Object Oriented Design and Patterns</title>
-      <link>//chischaschos.github.io/post/object-oriented-design-and-patterns/</link>
-      <pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid>
-      <description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns  </description>
-    </item>
-    
-    <item>
-      <title>WDT&#39;s Sinatra: De nada a TODO</title>
-      <link>//chischaschos.github.io/post/sinatra-todo/</link>
-      <pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/sinatra-todo/</guid>
-      <description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).
- </description>
-    </item>
-    
-  </channel>
-</rss>
+➜ bundle exec guard-jasmine Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off). Waiting for Jasmine test runner at http://localhost:58583/jasmine Run all Jasmine suites Run Jasmine suite at http://localhost:58583/jasmine 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.</description></item><item><title>Resque and Sidekiq as of August 2016</title><link>//chischaschos.github.io/post/resque-and-sidekiq/</link><pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate><guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid><description>Motivation Some months ago, at an interview I got asked this:
+What would you use resque or sidekiq and why?
+My answer was something along the lines of:
+Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description></item><item><title>2011 Magma Rails's Object Oriented Design and Patterns</title><link>//chischaschos.github.io/post/object-oriented-design-and-patterns/</link><pubDate>Wed, 23 Sep 2015 15:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/object-oriented-design-and-patterns/</guid><description>2011 Magma Rails Conference&amp;rsquo;s Object Oriented Design and Patterns</description></item><item><title>WDT's Sinatra: De nada a TODO</title><link>//chischaschos.github.io/post/sinatra-todo/</link><pubDate>Wed, 19 Aug 2015 18:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/sinatra-todo/</guid><description>WDT&amp;rsquo;s Sinatra: De nada a TODO A talk for Web Dev Talks Mexico (WDT).</description></item></channel></rss>

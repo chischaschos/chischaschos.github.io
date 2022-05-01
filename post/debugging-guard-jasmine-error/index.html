@@ -1,96 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  
-  <meta charset="utf-8">
-  <title>Debugging guard-jasmine error - chischaschos rocks</title>
-  <meta name="description" content="Debugging guard-jasmine error">
-  <meta name="author" content="emmanuel delgado">
-
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="//chischaschos.github.io/css/fonts.css">
-  
-  
-  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
-  
-  
-    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
-  
-  <link rel="stylesheet" href="//chischaschos.github.io/css/custom.css">
-
-  
-  
-  <link rel="stylesheet" href="//chischaschos.github.io/highlight/styles/solarized_light.css">
-  
-  <script src="//chischaschos.github.io/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <meta name="generator" content="Hugo 0.64.1" />
-  
-</head>
-<body>
-
-<div class="header pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-    <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
-            
-            <a href="//chischaschos.github.io/" class="site-title pure-menu-heading">chischaschos rocks</a>
-            <ul class="pure-menu-list">
-				
-                <li class="pure-menu-item">
-                    <a href="//chischaschos.github.io/about/" class="pure-menu-link">About</a>
-                </li>
-            </ul>
-        </div>
-        <div class="mobile pure-menu nav-menu">
-            <a href="/" class="pure-menu-heading" id="toggle-home">chischaschos rocks</a>
-            <a href="#" id="toggle-btn">&#9776;</a>
-            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
-                
-				
-                <li class="pure-menu-item">
-                    <a href="//chischaschos.github.io/about" class="pure-menu-link">About</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="pure-u-1-24 pure-u-md-1-6"></div>
-</div>
-
-<div class="pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-  <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="post">
-
-            <div class="post-title">
-                <p class="footnote">
-                    <time class="">2016-09-27</time>
-                
-                    
-                    |
-                    
-                    
-                    tags:<a href="//chischaschos.github.io/tags/ruby">ruby</a> <a href="//chischaschos.github.io/tags/debugging">debugging</a> 
-                    
-
-                    
-
-                    
-                </p>
-                <h1>Debugging guard-jasmine error</h1>
-            </div>
-
-            <div class="post-content">
-                <h2 id="motivation">Motivation</h2>
-<p>I&rsquo;m working on a project that uses <code>guard-jasmine (1.19.2)</code>. For a number reasons I can&rsquo;t upgrade it yet.</p>
-<p>This morning the test headless test suite started failing with:</p>
-<pre><code>➜  bundle exec guard-jasmine
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Debugging guard-jasmine error - chischaschos rocks</title><meta name=description content="Debugging guard-jasmine error"><meta name=author content="emmanuel delgado"><meta name=viewport content="width=device-width,initial-scale=1"><link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel=stylesheet type=text/css><link rel=stylesheet href=//chischaschos.github.io/css/fonts.css><link rel=stylesheet href=https://unpkg.com/purecss@0.6.1/build/pure-min.css integrity=sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY crossorigin=anonymous><link rel=stylesheet href=https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css><link rel=stylesheet href=//chischaschos.github.io/css/custom.css><link rel=stylesheet href=//chischaschos.github.io/highlight/styles/solarized_light.css><script src=//chischaschos.github.io/highlight/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script><meta name=generator content="Hugo 0.64.0"></head><body><div class="header pure-g"><div class="pure-u-1-24 pure-u-md-5-24"></div><div class="pure-u-11-12 pure-u-md-5-8"><div class="desktop pure-menu pure-menu-horizontal nav-menu"><a href=//chischaschos.github.io/ class="site-title pure-menu-heading">chischaschos rocks</a><ul class=pure-menu-list><li class=pure-menu-item><a href=//chischaschos.github.io/about/ class=pure-menu-link>About</a></li></ul></div><div class="mobile pure-menu nav-menu"><a href=/ class=pure-menu-heading id=toggle-home>chischaschos rocks</a>
+<a href=# id=toggle-btn>&#9776;</a><ul class=pure-menu-list id=toggle-content style=display:none><li class=pure-menu-item><a href=//chischaschos.github.io/about class=pure-menu-link>About</a></li></ul></div></div><div class="pure-u-1-24 pure-u-md-1-6"></div></div><div class=pure-g><div class="pure-u-1-24 pure-u-md-5-24"></div><div class="pure-u-11-12 pure-u-md-5-8"><div class=post><div class=post-title><p class=footnote><time>2016-09-27</time>
+|
+tags:<a href=//chischaschos.github.io/tags/ruby>ruby</a> <a href=//chischaschos.github.io/tags/debugging>debugging</a></p><h1>Debugging guard-jasmine error</h1></div><div class=post-content><h2 id=motivation>Motivation</h2><p>I&rsquo;m working on a project that uses <code>guard-jasmine (1.19.2)</code>. For a number reasons I can&rsquo;t upgrade it yet.</p><p>This morning the test headless test suite started failing with:</p><pre><code>➜  bundle exec guard-jasmine
 Guard::Jasmine starts Unicorn spec server on port 58583 in test environment (coverage off).
 Waiting for Jasmine test runner at http://localhost:58583/jasmine
 Run all Jasmine suites
@@ -98,12 +9,7 @@ Run Jasmine suite at http://localhost:58583/jasmine
 2016-09-27 22:01:55.025 phantomjs[3242:3209481] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead.
 An error occurred in the Jasmine runner
 </code></pre><p>It is hard to notice but the actual error is the last line: <strong>An error ocurred in the Jasmine runner</strong>. If I run the tests in the browser they are fine,
-only the the headless suite is failing.</p>
-<p>I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed to find the error.</p>
-<h2 id="the-bug-hunt">The bug hunt</h2>
-<p>I started asking myself a bunch of questions such as:</p>
-<h3 id="q1-can-i-execute-the-same-command-and-get-a-more-verbose-output">Q1. Can I execute the same command and get a more verbose output?</h3>
-<pre><code>➜  bundle exec guard-jasmine --verbose
+only the the headless suite is failing.</p><p>I got a warning and a message that does not give me too much details about what is going on. The following is the set of steps that I followed to find the error.</p><h2 id=the-bug-hunt>The bug hunt</h2><p>I started asking myself a bunch of questions such as:</p><h3 id=q1-can-i-execute-the-same-command-and-get-a-more-verbose-output>Q1. Can I execute the same command and get a more verbose output?</h3><pre><code>➜  bundle exec guard-jasmine --verbose
 Guard::Jasmine starts Unicorn spec server on port 58749 in test environment (coverage off).
 I, [2016-09-27T22:06:51.953642 #3742]  INFO -- : listening on addr=0.0.0.0:58749 fd=11
 I, [2016-09-27T22:06:51.953792 #3742]  INFO -- : worker=0 spawning...
@@ -118,33 +24,9 @@ Run all Jasmine suites
 Run Jasmine suite at http://localhost:58749/jasmine
 2016-09-27 22:06:59.227 phantomjs[3793:3213439] *** WARNING: Method userSpaceScaleFactor in class NSView is deprecated on 10.7 and later. It should not be used in new applications. Use convertRectToBacking: instead.
 An error occurred in the Jasmine runner
-</code></pre><p><strong>A1:</strong> Well yes there is a verbose option, but it didn&rsquo;t things clearer for me.</p>
-<h3 id="q2-can-i-set-a-debugger-and-see-what-is-going-on">Q2. Can I set a debugger and see what is going on?</h3>
-<p><strong>A2:</strong> Well yes but where?. OK so the entry point is the command <code>guard-jasmine</code> so:</p>
-<ul>
-<li><a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3">https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3</a></li>
-<li>Means it calls <code>Guard::Jasmine::CLI.start</code></li>
-<li>The CLI is a <a href="http://whatisthor.com/">Thor</a> implementation, which ends up calling:</li>
-<li><a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216">https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216</a></li>
-<li>Meaning it calls <a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L220">::Guard::Jasmine::Server.start(runner_options)</a></li>
-<li>So it first starts a <em>server</em> and then runs a <em>command</em>.</li>
-<li>So here <a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L44">::Guard::Jasmine::Runner.run(paths, runner_options)</a> and then <a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L109">run_jasmine_spec</a></li>
-<li>I put a debugger in <a href="https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L108">line 108</a> and then checked the command that is was executing:</li>
-</ul>
-<pre><code>/usr/local/bin/phantomjs /Users/blabla/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/guard-jasmine-1.19.2/lib/guard/jasmine/phantomjs/guard-jasmine.js \&quot;http://localhost:59100/jasmine\&quot; 30000000 always true failure failure false false ''
-</code></pre><p>So the command it executes has the form:</p>
-<ul>
-<li><em>phantomjs-binary</em> <em>guard-jasmine-js-script</em> <em>guard-jasmine-js-arguments</em></li>
-</ul>
-<p>And the guard-jasmine arguments are:</p>
-<ul>
-<li><em>instance-running-jasminerice</em> <em>more-args-to-guard-jasmine-script</em></li>
-</ul>
-<p><strong>A2 Extended answer:</strong> Now I am able to run the same command without invoking the gem executable (copy paste it from the debugger), the problem is that I get the same error.
-The nice thing is that I learned how test runner works.</p>
-<h3 id="q3-before-keep-digging-are-you-sure-your-js-does-not-contain-any-errors">Q3: Before keep digging, are you sure your JS does not contain any errors?</h3>
-<p>Let me pass my JS to node and let it do a syntax check:</p>
-<pre><code>wget -qO-  http://localhost:3000/assets/app.js | node
+</code></pre><p><strong>A1:</strong> Well yes there is a verbose option, but it didn&rsquo;t things clearer for me.</p><h3 id=q2-can-i-set-a-debugger-and-see-what-is-going-on>Q2. Can I set a debugger and see what is going on?</h3><p><strong>A2:</strong> Well yes but where?. OK so the entry point is the command <code>guard-jasmine</code> so:</p><ul><li><a href=https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3>https://github.com/guard/guard-jasmine/blob/v1.19.2/bin/guard-jasmine#L3</a></li><li>Means it calls <code>Guard::Jasmine::CLI.start</code></li><li>The CLI is a <a href=http://whatisthor.com/>Thor</a> implementation, which ends up calling:</li><li><a href=https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216>https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L216</a></li><li>Meaning it calls <a href=https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/cli.rb#L220>::Guard::Jasmine::Server.start(runner_options)</a></li><li>So it first starts a <em>server</em> and then runs a <em>command</em>.</li><li>So here <a href=https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L44>::Guard::Jasmine::Runner.run(paths, runner_options)</a> and then <a href=https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L109>run_jasmine_spec</a></li><li>I put a debugger in <a href=https://github.com/guard/guard-jasmine/blob/v1.19.2/lib/guard/jasmine/runner.rb#L108>line 108</a> and then checked the command that is was executing:</li></ul><pre><code>/usr/local/bin/phantomjs /Users/blabla/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/guard-jasmine-1.19.2/lib/guard/jasmine/phantomjs/guard-jasmine.js \&quot;http://localhost:59100/jasmine\&quot; 30000000 always true failure failure false false ''
+</code></pre><p>So the command it executes has the form:</p><ul><li><em>phantomjs-binary</em> <em>guard-jasmine-js-script</em> <em>guard-jasmine-js-arguments</em></li></ul><p>And the guard-jasmine arguments are:</p><ul><li><em>instance-running-jasminerice</em> <em>more-args-to-guard-jasmine-script</em></li></ul><p><strong>A2 Extended answer:</strong> Now I am able to run the same command without invoking the gem executable (copy paste it from the debugger), the problem is that I get the same error.
+The nice thing is that I learned how test runner works.</p><h3 id=q3-before-keep-digging-are-you-sure-your-js-does-not-contain-any-errors>Q3: Before keep digging, are you sure your JS does not contain any errors?</h3><p>Let me pass my JS to node and let it do a syntax check:</p><pre><code>wget -qO-  http://localhost:3000/assets/app.js | node
 [stdin]:2
   Namespace('utils');
   ^
@@ -160,115 +42,14 @@ ReferenceError: Namespace is not defined
     at runCallback (timers.js:649:20)
     at tryOnImmediate (timers.js:622:5)
     at processImmediate [as _immediateCallback] (timers.js:594:5)
-</code></pre><p>I don&rsquo;t thinkg this is helpful at all. Instead I&rsquo;m gonna pass it through a linter using the default configurations:</p>
-<pre><code>wget -qO-  http://localhost:3000/app/assets/app.js | eslint --stdin --no-eslintrc
+</code></pre><p>I don&rsquo;t thinkg this is helpful at all. Instead I&rsquo;m gonna pass it through a linter using the default configurations:</p><pre><code>wget -qO-  http://localhost:3000/app/assets/app.js | eslint --stdin --no-eslintrc
 
 &lt;text&gt;
   1222:35  error  Parsing error: Unexpected token =
 
 ✖ 1 problem (1 error, 0 warnings)
-</code></pre><p>This looks nicer so now let&rsquo;s see what that line has:</p>
-<pre><code>wget -qO-  http://localhost:3000/app/assets/app.js | sed -n '1222p'
+</code></pre><p>This looks nicer so now let&rsquo;s see what that line has:</p><pre><code>wget -qO-  http://localhost:3000/app/assets/app.js | sed -n '1222p'
   initialize: function(attributes = {}) {
-</code></pre><p><strong>A3:</strong> I&rsquo;m using a default argument. Which worked fine in the browser, but not in my old headless test suite.</p>
-<h2 id="solution">Solution</h2>
-<p>I didn&rsquo;t need a default argument right there. So I simply removed it. Anyways I really need to upgrade my test
-suite.</p>
-
-                
-<div id="disqus_thread"></div>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-
-s.src = '//chischaschos-rocks.disqus.com/embed.js';
-
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-
-            </div>
-        </div>
-  </div>
-    <div class="pure-u-1-24 pure-u-md-1-6"></div>
-</div>
-
-<div class="footer pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-    <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="footer-content">
-		  <div class="pure-menu pure-menu-horizontal">
-              <ul>
-			      
-                  <li class="pure-menu-heading" id="foot-name">emmanuel delgado:</li>
-                  
-				  
-                  
-          
-                  
-                  <li class="pure-menu-item">
-                      <a href="https://github.com/chischaschos" class="pure-menu-link">GitHub</a>
-                  </li>
-                  
-          
-                  
-                  <li class="pure-menu-item">
-                      <a href="https://www.linkedin.com/in/emmanueldelgado" class="pure-menu-link">LinkedIn</a>
-                  </li>
-                  
-          
-                  
-          
-                  
-                  <li class="pure-menu-item">
-                      <a href="https://twitter.com/chischaschos" class="pure-menu-link">Twitter</a>
-                  </li>
-                  
-          
-              </ul>
-              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
-          </div>
-		  
-		</div>
-	  </div>
-      <div class="pure-u-1-24 pure-u-md-1-6"></div>
-</div>
-
-
-<script src="//chischaschos.github.io/js/jquery.min.js" type="text/javascript"></script>
-<script src="//chischaschos.github.io/js/jquery.timeago.js" type="text/javascript"></script>
-<script type="text/javascript">
-  $(function(){
-    $("time.timeago").timeago();
-  })
-  $("#toggle-btn").click(function(){
-    $("#toggle-content").toggle();
-    if($(this).html() === "☰") {
-        $(this).html("X")
-    } else {
-        $(this).html("☰")
-    }
-  });
-  $(window).resize(function(){
-    if(window.innerWidth > 768) {
-      $(".desktop").removeAttr("style");
-    }
-  });
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-21486770-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-</body>
-</html>
-
+</code></pre><p><strong>A3:</strong> I&rsquo;m using a default argument. Which worked fine in the browser, but not in my old headless test suite.</p><h2 id=solution>Solution</h2><p>I didn&rsquo;t need a default argument right there. So I simply removed it. Anyways I really need to upgrade my test
+suite.</p><div id=disqus_thread></div><script>(function(){var d=document,s=d.createElement('script');s.src='//chischaschos-rocks.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript></div></div></div><div class="pure-u-1-24 pure-u-md-1-6"></div></div><div class="footer pure-g"><div class="pure-u-1-24 pure-u-md-5-24"></div><div class="pure-u-11-12 pure-u-md-5-8"><div class=footer-content><div class="pure-menu pure-menu-horizontal"><ul><li class=pure-menu-heading id=foot-name>emmanuel delgado:</li><li class=pure-menu-item><a href=https://github.com/chischaschos class=pure-menu-link>GitHub</a></li><li class=pure-menu-item><a href=https://www.linkedin.com/in/emmanueldelgado class=pure-menu-link>LinkedIn</a></li><li class=pure-menu-item><a href=https://twitter.com/chischaschos class=pure-menu-link>Twitter</a></li></ul><a href=# class="pure-menu-heading pull-right" id=gototop-btn>↑↑</a></div></div></div><div class="pure-u-1-24 pure-u-md-1-6"></div></div><script src=//chischaschos.github.io/js/jquery.min.js type=text/javascript></script><script src=//chischaschos.github.io/js/jquery.timeago.js type=text/javascript></script><script type=text/javascript>$(function(){$("time.timeago").timeago();})
+$("#toggle-btn").click(function(){$("#toggle-content").toggle();if($(this).html()==="☰"){$(this).html("X")}else{$(this).html("☰")}});$(window).resize(function(){if(window.innerWidth>768){$(".desktop").removeAttr("style");}});</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-21486770-1','auto');ga('send','pageview');</script></body></html>

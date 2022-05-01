@@ -1,62 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pending-research on chischaschos rocks</title>
-    <link>//chischaschos.github.io/categories/pending-research/</link>
-    <description>Recent content in pending-research on chischaschos rocks</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 08 Sep 2018 13:46:00 -0700</lastBuildDate>
-    
-	<atom:link href="//chischaschos.github.io/categories/pending-research/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Object Oriented Programming and Services</title>
-      <link>//chischaschos.github.io/post/oop-and-services/</link>
-      <pubDate>Sat, 08 Sep 2018 13:46:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/oop-and-services/</guid>
-      <description>Motivation  What is a service? Who defines it? What contexts can services live in? Services best practices around naming and design.  Eric Evan&amp;rsquo;s Domain driven design Service, when an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement these operations in services. See also Service (systems architecture).
-Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary with a layer of services that establishes a set of available operations and coordinates the application&amp;rsquo;s response in each operation.</description>
-    </item>
-    
-    <item>
-      <title>The Quest to learn GraphQL</title>
-      <link>//chischaschos.github.io/post/the-quest-to-learn-graphql/</link>
-      <pubDate>Tue, 02 May 2017 13:00:00 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid>
-      <description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
-What is graphql  http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve  There is graphql in different languages such as golang, nodejs and ruby among others.
-  Ruby
-  https://github.com/rmosolgo/graphql-ruby
-  https://github.com/Shopify/graphql-batch
-  Nodejs
- Join Monster video Join Monster repo DataLoader    Who uses it?  Shopify Github Facebook  Performance Can we get a sense on how to measure it or what to expect?</description>
-    </item>
-    
-    <item>
-      <title>Resque and Sidekiq as of August 2016</title>
-      <link>//chischaschos.github.io/post/resque-and-sidekiq/</link>
-      <pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate>
-      
-      <guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid>
-      <description>Motivation Some months ago, at an interview I got asked this:
- What would you use resque or sidekiq and why?
- My answer was something along the lines of:
- Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description>
-    </item>
-    
-    <item>
-      <title>RSpec and the Four Phase Tests</title>
-      <link>//chischaschos.github.io/post/rspec-antipatterns/</link>
-      <pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate>
-      
-      <guid>//chischaschos.github.io/post/rspec-antipatterns/</guid>
-      <description>Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
-What the internet says about it?  https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/  Notes  let may be lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pending-research on chischaschos rocks</title><link>//chischaschos.github.io/categories/pending-research/</link><description>Recent content in pending-research on chischaschos rocks</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 08 Sep 2018 13:46:00 -0700</lastBuildDate><atom:link href="//chischaschos.github.io/categories/pending-research/index.xml" rel="self" type="application/rss+xml"/><item><title>Object Oriented Programming and Services</title><link>//chischaschos.github.io/post/oop-and-services/</link><pubDate>Sat, 08 Sep 2018 13:46:00 -0700</pubDate><guid>//chischaschos.github.io/post/oop-and-services/</guid><description>Motivation What is a service? Who defines it? What contexts can services live in? Services best practices around naming and design. Eric Evan&amp;rsquo;s Domain driven design Service, when an operation does not conceptually belong to any object. Following the natural contours of the problem, you can implement these operations in services. See also Service (systems architecture).
+Martin Fowler The Service Layer, defines an application&amp;rsquo;s boundary with a layer of services that establishes a set of available operations and coordinates the application&amp;rsquo;s response in each operation.</description></item><item><title>The Quest to learn GraphQL</title><link>//chischaschos.github.io/post/the-quest-to-learn-graphql/</link><pubDate>Tue, 02 May 2017 13:00:00 -0700</pubDate><guid>//chischaschos.github.io/post/the-quest-to-learn-graphql/</guid><description>The Quest to learn GraphQL This is just a bunch of notes taken while learning about GraphQL.
+What is graphql http://graphql.org/ https://www.quora.com/What-problem-does-GraphQL-solve There is graphql in different languages such as golang, nodejs and ruby among others.
+Ruby
+https://github.com/rmosolgo/graphql-ruby
+https://github.com/Shopify/graphql-batch
+Nodejs
+Join Monster video Join Monster repo DataLoader Who uses it? Shopify Github Facebook Performance Can we get a sense on how to measure it or what to expect?</description></item><item><title>Resque and Sidekiq as of August 2016</title><link>//chischaschos.github.io/post/resque-and-sidekiq/</link><pubDate>Mon, 08 Aug 2016 07:53:33 -0700</pubDate><guid>//chischaschos.github.io/post/resque-and-sidekiq/</guid><description>Motivation Some months ago, at an interview I got asked this:
+What would you use resque or sidekiq and why?
+My answer was something along the lines of:
+Sidekiq consumes less memory, so that sounds better. Both Resque and Sidekiq are stable and widely used in production. I&amp;rsquo;ve used Resque in a 3 applications, two of them are still running and processing tons of background jobs. Before making my choice I would need to know the kind of background processing that we would do.</description></item><item><title>RSpec and the Four Phase Tests</title><link>//chischaschos.github.io/post/rspec-antipatterns/</link><pubDate>Sun, 07 Feb 2016 20:49:58 -0600</pubDate><guid>//chischaschos.github.io/post/rspec-antipatterns/</guid><description>Motivation I want to know what are the best practices to write RSpec tests when striving for a Four Phase Test.
+What the internet says about it? https://thoughtbot.com/upcase/videos/four-phases-of-testing. https://robots.thoughtbot.com/how-we-test-rails-applications http://code.tutsplus.com/articles/rspec-testing-for-beginners-part-1--cms-26716 http://www.justinweiss.com/articles/writing-better-tests-with-the-three-phase-pattern/ Notes let may be lazy and convenient. If another developer comes and looks at the it, he will see a mystery guest. You create a DSL within RSpec, DSL puzzle. Each piece of indirection improves high level view, but makes it more complex when you have to change it.</description></item></channel></rss>

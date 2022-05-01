@@ -1,291 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  
-  <meta charset="utf-8">
-  <title>Learning window functions with postgresql - chischaschos rocks</title>
-  <meta name="description" content="Learning window functions with postgresql">
-  <meta name="author" content="emmanuel delgado">
-
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="//chischaschos.github.io/css/fonts.css">
-  
-  
-  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
-  
-  
-    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
-  
-  <link rel="stylesheet" href="//chischaschos.github.io/css/custom.css">
-
-  
-  
-  <link rel="stylesheet" href="//chischaschos.github.io/highlight/styles/solarized_light.css">
-  
-  <script src="//chischaschos.github.io/highlight/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <meta name="generator" content="Hugo 0.64.1" />
-  
-</head>
-<body>
-
-<div class="header pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-    <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
-            
-            <a href="//chischaschos.github.io/" class="site-title pure-menu-heading">chischaschos rocks</a>
-            <ul class="pure-menu-list">
-				
-                <li class="pure-menu-item">
-                    <a href="//chischaschos.github.io/about/" class="pure-menu-link">About</a>
-                </li>
-            </ul>
-        </div>
-        <div class="mobile pure-menu nav-menu">
-            <a href="/" class="pure-menu-heading" id="toggle-home">chischaschos rocks</a>
-            <a href="#" id="toggle-btn">&#9776;</a>
-            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
-                
-				
-                <li class="pure-menu-item">
-                    <a href="//chischaschos.github.io/about" class="pure-menu-link">About</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="pure-u-1-24 pure-u-md-1-6"></div>
-</div>
-
-<div class="pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-  <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="post">
-
-            <div class="post-title">
-                <p class="footnote">
-                    <time class="">2017-06-03</time>
-                
-                    
-                    |
-                    
-                    
-                    tags:<a href="//chischaschos.github.io/tags/sql">sql</a> <a href="//chischaschos.github.io/tags/postgresql">postgresql</a> 
-                    
-
-                    
-
-                    
-                </p>
-                <h1>Learning window functions with postgresql</h1>
-            </div>
-
-            <div class="post-content">
-                <h2 id="objective">Objective</h2>
-<p>Learn what <a href="https://www.postgresql.org/docs/9.1/static/tutorial-window.html">window functions</a> are and how they are used.</p>
-<p>This example uses the <a href="https://github.com/chischaschos/fake-messaging-app-pg">fake messaging app playgroung</a>. What we are going to do is to get the messages from groups a user is part of, only the top 3 messages of each group sorted by creation date are returned.</p>
-<p>This blog is written using commit <a href="https://github.com/chischaschos/fake-messaging-app-pg/commit/cf971929380a91730dffb9b87177f664bd87aa1a">cf971929380a91730dffb9b87177f664bd87aa1a</a> of the fake messaging app playground.</p>
-<h2 id="an-example-use-case">An example use case</h2>
-<p>What we are going to do is <strong>to obtain the latest 3 messages a user has from each group</strong>.  To start let&rsquo;s build the database with <code>create-myapp-db.sh</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  fake-messaging-app git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ./create-myapp-db.sh
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Learning window functions with postgresql - chischaschos rocks</title><meta name=description content="Learning window functions with postgresql"><meta name=author content="emmanuel delgado"><meta name=viewport content="width=device-width,initial-scale=1"><link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel=stylesheet type=text/css><link rel=stylesheet href=//chischaschos.github.io/css/fonts.css><link rel=stylesheet href=https://unpkg.com/purecss@0.6.1/build/pure-min.css integrity=sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY crossorigin=anonymous><link rel=stylesheet href=https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css><link rel=stylesheet href=//chischaschos.github.io/css/custom.css><link rel=stylesheet href=//chischaschos.github.io/highlight/styles/solarized_light.css><script src=//chischaschos.github.io/highlight/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script><meta name=generator content="Hugo 0.64.0"></head><body><div class="header pure-g"><div class="pure-u-1-24 pure-u-md-5-24"></div><div class="pure-u-11-12 pure-u-md-5-8"><div class="desktop pure-menu pure-menu-horizontal nav-menu"><a href=//chischaschos.github.io/ class="site-title pure-menu-heading">chischaschos rocks</a><ul class=pure-menu-list><li class=pure-menu-item><a href=//chischaschos.github.io/about/ class=pure-menu-link>About</a></li></ul></div><div class="mobile pure-menu nav-menu"><a href=/ class=pure-menu-heading id=toggle-home>chischaschos rocks</a>
+<a href=# id=toggle-btn>&#9776;</a><ul class=pure-menu-list id=toggle-content style=display:none><li class=pure-menu-item><a href=//chischaschos.github.io/about class=pure-menu-link>About</a></li></ul></div></div><div class="pure-u-1-24 pure-u-md-1-6"></div></div><div class=pure-g><div class="pure-u-1-24 pure-u-md-5-24"></div><div class="pure-u-11-12 pure-u-md-5-8"><div class=post><div class=post-title><p class=footnote><time>2017-06-03</time>
+|
+tags:<a href=//chischaschos.github.io/tags/sql>sql</a> <a href=//chischaschos.github.io/tags/postgresql>postgresql</a></p><h1>Learning window functions with postgresql</h1></div><div class=post-content><h2 id=objective>Objective</h2><p>Learn what <a href=https://www.postgresql.org/docs/9.1/static/tutorial-window.html>window functions</a> are and how they are used.</p><p>This example uses the <a href=https://github.com/chischaschos/fake-messaging-app-pg>fake messaging app playgroung</a>. What we are going to do is to get the messages from groups a user is part of, only the top 3 messages of each group sorted by creation date are returned.</p><p>This blog is written using commit <a href=https://github.com/chischaschos/fake-messaging-app-pg/commit/cf971929380a91730dffb9b87177f664bd87aa1a>cf971929380a91730dffb9b87177f664bd87aa1a</a> of the fake messaging app playground.</p><h2 id=an-example-use-case>An example use case</h2><p>What we are going to do is <strong>to obtain the latest 3 messages a user has from each group</strong>. To start let&rsquo;s build the database with <code>create-myapp-db.sh</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>➜  fake-messaging-app git:<span style=color:#f92672>(</span>master<span style=color:#f92672>)</span> ./create-myapp-db.sh
 CREATE TABLE
-Our base user <span style="color:#75715e">#&lt;OpenStruct id=&#34;1&#34;, name=&#34;Conner Cummings&#34;&gt;</span>
-1, <span style="color:#ae81ff">2</span>
-2, <span style="color:#ae81ff">5</span>
-3, <span style="color:#ae81ff">10</span>
-4, <span style="color:#ae81ff">17</span>
-5, <span style="color:#ae81ff">26</span>
-6, <span style="color:#ae81ff">37</span>
-7, <span style="color:#ae81ff">50</span>
-8, <span style="color:#ae81ff">65</span>
-9, <span style="color:#ae81ff">82</span>
-10, <span style="color:#ae81ff">101</span>
-11, <span style="color:#ae81ff">122</span>
-12, <span style="color:#ae81ff">145</span>
-13, <span style="color:#ae81ff">170</span>
-14, <span style="color:#ae81ff">197</span>
-15, <span style="color:#ae81ff">226</span>
-16, <span style="color:#ae81ff">257</span>
-17, <span style="color:#ae81ff">290</span>
-18, <span style="color:#ae81ff">325</span>
-19, <span style="color:#ae81ff">362</span>
-20, <span style="color:#ae81ff">401</span>
-</code></pre></div><p>Now let&rsquo;s connect to the db:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  fake-messaging-app git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> psql --dbname fake_messaging_app --username postgres
-psql <span style="color:#f92672">(</span>9.6.2<span style="color:#f92672">)</span>
-Type <span style="color:#e6db74">&#34;help&#34;</span> <span style="color:#66d9ef">for</span> help.
+Our base user <span style=color:#75715e>#&lt;OpenStruct id=&#34;1&#34;, name=&#34;Conner Cummings&#34;&gt;</span>
+1, <span style=color:#ae81ff>2</span>
+2, <span style=color:#ae81ff>5</span>
+3, <span style=color:#ae81ff>10</span>
+4, <span style=color:#ae81ff>17</span>
+5, <span style=color:#ae81ff>26</span>
+6, <span style=color:#ae81ff>37</span>
+7, <span style=color:#ae81ff>50</span>
+8, <span style=color:#ae81ff>65</span>
+9, <span style=color:#ae81ff>82</span>
+10, <span style=color:#ae81ff>101</span>
+11, <span style=color:#ae81ff>122</span>
+12, <span style=color:#ae81ff>145</span>
+13, <span style=color:#ae81ff>170</span>
+14, <span style=color:#ae81ff>197</span>
+15, <span style=color:#ae81ff>226</span>
+16, <span style=color:#ae81ff>257</span>
+17, <span style=color:#ae81ff>290</span>
+18, <span style=color:#ae81ff>325</span>
+19, <span style=color:#ae81ff>362</span>
+20, <span style=color:#ae81ff>401</span>
+</code></pre></div><p>Now let&rsquo;s connect to the db:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>➜  fake-messaging-app git:<span style=color:#f92672>(</span>master<span style=color:#f92672>)</span> psql --dbname fake_messaging_app --username postgres
+psql <span style=color:#f92672>(</span>9.6.2<span style=color:#f92672>)</span>
+Type <span style=color:#e6db74>&#34;help&#34;</span> <span style=color:#66d9ef>for</span> help.
 
-fake_messaging_app<span style="color:#f92672">=</span>&gt;
-</code></pre></div><p>Let&rsquo;s get all the messages for group 2 of size 5:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> id, created_at, row_number() OVER (
-  partition <span style="color:#66d9ef">BY</span> group_id <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> created_at <span style="color:#66d9ef">DESC</span>)
-<span style="color:#66d9ef">FROM</span> messages
-<span style="color:#66d9ef">WHERE</span> group_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> id |     created_at      | row_number
+fake_messaging_app<span style=color:#f92672>=</span>&gt;
+</code></pre></div><p>Let&rsquo;s get all the messages for group 2 of size 5:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> id, created_at, row_number() OVER (
+  partition <span style=color:#66d9ef>BY</span> group_id <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> created_at <span style=color:#66d9ef>DESC</span>)
+<span style=color:#66d9ef>FROM</span> messages
+<span style=color:#66d9ef>WHERE</span> group_id <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash> id |     created_at      | row_number
 ----+---------------------+------------
-  <span style="color:#ae81ff">7</span> | 2017-01-01 00:00:04 |          <span style="color:#ae81ff">1</span>
-  <span style="color:#ae81ff">6</span> | 2017-01-01 00:00:03 |          <span style="color:#ae81ff">2</span>
-  <span style="color:#ae81ff">5</span> | 2017-01-01 00:00:02 |          <span style="color:#ae81ff">3</span>
-  <span style="color:#ae81ff">4</span> | 2017-01-01 00:00:01 |          <span style="color:#ae81ff">4</span>
-  <span style="color:#ae81ff">3</span> | 2017-01-01 00:00:00 |          <span style="color:#ae81ff">5</span>
-<span style="color:#f92672">(</span><span style="color:#ae81ff">5</span> rows<span style="color:#f92672">)</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">... row_number() OVER (PARTITION <span style="color:#66d9ef">BY</span> group_id <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> created_at <span style="color:#66d9ef">DESC</span>) ...
-</code></pre></div><blockquote>
-<p>NOTE: Window functions are permitted only in the SELECT list and the ORDER BY clause of the query. They are forbidden elsewhere, such as in GROUP BY, HAVING and WHERE clauses.</p>
-</blockquote>
-<p>Now only pick 3:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
-<span style="color:#66d9ef">FROM</span> (
-  <span style="color:#66d9ef">SELECT</span> id, created_at, row_number() OVER (
-    partition <span style="color:#66d9ef">BY</span> group_id <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> created_at <span style="color:#66d9ef">DESC</span>)
-  <span style="color:#66d9ef">FROM</span> messages
-  <span style="color:#66d9ef">WHERE</span> group_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>) t1
-<span style="color:#66d9ef">WHERE</span> row_number <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> id |     created_at      | row_number
+  <span style=color:#ae81ff>7</span> | 2017-01-01 00:00:04 |          <span style=color:#ae81ff>1</span>
+  <span style=color:#ae81ff>6</span> | 2017-01-01 00:00:03 |          <span style=color:#ae81ff>2</span>
+  <span style=color:#ae81ff>5</span> | 2017-01-01 00:00:02 |          <span style=color:#ae81ff>3</span>
+  <span style=color:#ae81ff>4</span> | 2017-01-01 00:00:01 |          <span style=color:#ae81ff>4</span>
+  <span style=color:#ae81ff>3</span> | 2017-01-01 00:00:00 |          <span style=color:#ae81ff>5</span>
+<span style=color:#f92672>(</span><span style=color:#ae81ff>5</span> rows<span style=color:#f92672>)</span>
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql>... row_number() OVER (PARTITION <span style=color:#66d9ef>BY</span> group_id <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> created_at <span style=color:#66d9ef>DESC</span>) ...
+</code></pre></div><blockquote><p>NOTE: Window functions are permitted only in the SELECT list and the ORDER BY clause of the query. They are forbidden elsewhere, such as in GROUP BY, HAVING and WHERE clauses.</p></blockquote><p>Now only pick 3:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> <span style=color:#f92672>*</span>
+<span style=color:#66d9ef>FROM</span> (
+  <span style=color:#66d9ef>SELECT</span> id, created_at, row_number() OVER (
+    partition <span style=color:#66d9ef>BY</span> group_id <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>BY</span> created_at <span style=color:#66d9ef>DESC</span>)
+  <span style=color:#66d9ef>FROM</span> messages
+  <span style=color:#66d9ef>WHERE</span> group_id <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>) t1
+<span style=color:#66d9ef>WHERE</span> row_number <span style=color:#f92672>&lt;</span><span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash> id |     created_at      | row_number
 ----+---------------------+------------
-  <span style="color:#ae81ff">7</span> | 2017-01-01 00:00:04 |          <span style="color:#ae81ff">1</span>
-  <span style="color:#ae81ff">6</span> | 2017-01-01 00:00:03 |          <span style="color:#ae81ff">2</span>
-  <span style="color:#ae81ff">5</span> | 2017-01-01 00:00:02 |          <span style="color:#ae81ff">3</span>
-<span style="color:#f92672">(</span><span style="color:#ae81ff">3</span> rows<span style="color:#f92672">)</span>
-</code></pre></div><p>And now do it for all the groups from one specific user:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> group_id, id <span style="color:#66d9ef">AS</span> message_id, user_id, created_at, row_number
-<span style="color:#66d9ef">FROM</span> (
-  <span style="color:#66d9ef">SELECT</span> m.id, m.user_id, m.message, m.created_at, m.group_id, row_number() OVER (
-    partition <span style="color:#66d9ef">BY</span> m.group_id <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">by</span> m.created_at <span style="color:#66d9ef">desc</span>)
-  <span style="color:#66d9ef">FROM</span> messages m
-  <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> users_groups ug <span style="color:#66d9ef">USING</span>(group_id)
-  <span style="color:#66d9ef">WHERE</span> ug.member_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>) t1
-<span style="color:#66d9ef">WHERE</span> row_number <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">----------+------------+---------+---------------------+------------
-        <span style="color:#ae81ff">1</span> |          <span style="color:#ae81ff">2</span> |     <span style="color:#ae81ff">626</span> | 2017-01-01 00:00:01 |          <span style="color:#ae81ff">1</span>
-        <span style="color:#ae81ff">1</span> |          <span style="color:#ae81ff">1</span> |       <span style="color:#ae81ff">1</span> | 2017-01-01 00:00:00 |          <span style="color:#ae81ff">2</span>
-        <span style="color:#ae81ff">2</span> |          <span style="color:#ae81ff">7</span> |     <span style="color:#ae81ff">784</span> | 2017-01-01 00:00:04 |          <span style="color:#ae81ff">1</span>
-        <span style="color:#ae81ff">2</span> |          <span style="color:#ae81ff">6</span> |     <span style="color:#ae81ff">143</span> | 2017-01-01 00:00:03 |          <span style="color:#ae81ff">2</span>
-        <span style="color:#ae81ff">2</span> |          <span style="color:#ae81ff">5</span> |     <span style="color:#ae81ff">456</span> | 2017-01-01 00:00:02 |          <span style="color:#ae81ff">3</span>
-        <span style="color:#ae81ff">3</span> |         <span style="color:#ae81ff">17</span> |      <span style="color:#ae81ff">34</span> | 2017-01-01 00:00:09 |          <span style="color:#ae81ff">1</span>
-        <span style="color:#ae81ff">3</span> |         <span style="color:#ae81ff">16</span> |     <span style="color:#ae81ff">582</span> | 2017-01-01 00:00:08 |          <span style="color:#ae81ff">2</span>
-        <span style="color:#ae81ff">3</span> |         <span style="color:#ae81ff">15</span> |     <span style="color:#ae81ff">342</span> | 2017-01-01 00:00:07 |          <span style="color:#ae81ff">3</span>
-        <span style="color:#ae81ff">4</span> |         <span style="color:#ae81ff">34</span> |     <span style="color:#ae81ff">877</span> | 2017-01-01 00:00:16 |          <span style="color:#ae81ff">1</span>
-        <span style="color:#ae81ff">4</span> |         <span style="color:#ae81ff">33</span> |     <span style="color:#ae81ff">778</span> | 2017-01-01 00:00:15 |          <span style="color:#ae81ff">2</span>
-        <span style="color:#ae81ff">4</span> |         <span style="color:#ae81ff">32</span> |      <span style="color:#ae81ff">53</span> | 2017-01-01 00:00:14 |          <span style="color:#ae81ff">3</span>
-        <span style="color:#ae81ff">5</span> |         <span style="color:#ae81ff">60</span> |     <span style="color:#ae81ff">215</span> | 2017-01-01 00:00:25 |          <span style="color:#ae81ff">1</span>
-        <span style="color:#ae81ff">5</span> |         <span style="color:#ae81ff">59</span> |     <span style="color:#ae81ff">421</span> | 2017-01-01 00:00:24 |          <span style="color:#ae81ff">2</span>
-        <span style="color:#ae81ff">5</span> |         <span style="color:#ae81ff">58</span> |     <span style="color:#ae81ff">641</span> | 2017-01-01 00:00:23 |          <span style="color:#ae81ff">3</span>
+  <span style=color:#ae81ff>7</span> | 2017-01-01 00:00:04 |          <span style=color:#ae81ff>1</span>
+  <span style=color:#ae81ff>6</span> | 2017-01-01 00:00:03 |          <span style=color:#ae81ff>2</span>
+  <span style=color:#ae81ff>5</span> | 2017-01-01 00:00:02 |          <span style=color:#ae81ff>3</span>
+<span style=color:#f92672>(</span><span style=color:#ae81ff>3</span> rows<span style=color:#f92672>)</span>
+</code></pre></div><p>And now do it for all the groups from one specific user:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=color:#66d9ef>SELECT</span> group_id, id <span style=color:#66d9ef>AS</span> message_id, user_id, created_at, row_number
+<span style=color:#66d9ef>FROM</span> (
+  <span style=color:#66d9ef>SELECT</span> m.id, m.user_id, m.message, m.created_at, m.group_id, row_number() OVER (
+    partition <span style=color:#66d9ef>BY</span> m.group_id <span style=color:#66d9ef>ORDER</span> <span style=color:#66d9ef>by</span> m.created_at <span style=color:#66d9ef>desc</span>)
+  <span style=color:#66d9ef>FROM</span> messages m
+  <span style=color:#66d9ef>INNER</span> <span style=color:#66d9ef>JOIN</span> users_groups ug <span style=color:#66d9ef>USING</span>(group_id)
+  <span style=color:#66d9ef>WHERE</span> ug.member_id <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>) t1
+<span style=color:#66d9ef>WHERE</span> row_number <span style=color:#f92672>&lt;</span><span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>----------+------------+---------+---------------------+------------
+        <span style=color:#ae81ff>1</span> |          <span style=color:#ae81ff>2</span> |     <span style=color:#ae81ff>626</span> | 2017-01-01 00:00:01 |          <span style=color:#ae81ff>1</span>
+        <span style=color:#ae81ff>1</span> |          <span style=color:#ae81ff>1</span> |       <span style=color:#ae81ff>1</span> | 2017-01-01 00:00:00 |          <span style=color:#ae81ff>2</span>
+        <span style=color:#ae81ff>2</span> |          <span style=color:#ae81ff>7</span> |     <span style=color:#ae81ff>784</span> | 2017-01-01 00:00:04 |          <span style=color:#ae81ff>1</span>
+        <span style=color:#ae81ff>2</span> |          <span style=color:#ae81ff>6</span> |     <span style=color:#ae81ff>143</span> | 2017-01-01 00:00:03 |          <span style=color:#ae81ff>2</span>
+        <span style=color:#ae81ff>2</span> |          <span style=color:#ae81ff>5</span> |     <span style=color:#ae81ff>456</span> | 2017-01-01 00:00:02 |          <span style=color:#ae81ff>3</span>
+        <span style=color:#ae81ff>3</span> |         <span style=color:#ae81ff>17</span> |      <span style=color:#ae81ff>34</span> | 2017-01-01 00:00:09 |          <span style=color:#ae81ff>1</span>
+        <span style=color:#ae81ff>3</span> |         <span style=color:#ae81ff>16</span> |     <span style=color:#ae81ff>582</span> | 2017-01-01 00:00:08 |          <span style=color:#ae81ff>2</span>
+        <span style=color:#ae81ff>3</span> |         <span style=color:#ae81ff>15</span> |     <span style=color:#ae81ff>342</span> | 2017-01-01 00:00:07 |          <span style=color:#ae81ff>3</span>
+        <span style=color:#ae81ff>4</span> |         <span style=color:#ae81ff>34</span> |     <span style=color:#ae81ff>877</span> | 2017-01-01 00:00:16 |          <span style=color:#ae81ff>1</span>
+        <span style=color:#ae81ff>4</span> |         <span style=color:#ae81ff>33</span> |     <span style=color:#ae81ff>778</span> | 2017-01-01 00:00:15 |          <span style=color:#ae81ff>2</span>
+        <span style=color:#ae81ff>4</span> |         <span style=color:#ae81ff>32</span> |      <span style=color:#ae81ff>53</span> | 2017-01-01 00:00:14 |          <span style=color:#ae81ff>3</span>
+        <span style=color:#ae81ff>5</span> |         <span style=color:#ae81ff>60</span> |     <span style=color:#ae81ff>215</span> | 2017-01-01 00:00:25 |          <span style=color:#ae81ff>1</span>
+        <span style=color:#ae81ff>5</span> |         <span style=color:#ae81ff>59</span> |     <span style=color:#ae81ff>421</span> | 2017-01-01 00:00:24 |          <span style=color:#ae81ff>2</span>
+        <span style=color:#ae81ff>5</span> |         <span style=color:#ae81ff>58</span> |     <span style=color:#ae81ff>641</span> | 2017-01-01 00:00:23 |          <span style=color:#ae81ff>3</span>
 ....
 ....
-       <span style="color:#ae81ff">19</span> |       <span style="color:#ae81ff">2489</span> |     <span style="color:#ae81ff">284</span> | 2017-01-01 00:06:01 |          <span style="color:#ae81ff">1</span>
-       <span style="color:#ae81ff">19</span> |       <span style="color:#ae81ff">2488</span> |     <span style="color:#ae81ff">900</span> | 2017-01-01 00:06:00 |          <span style="color:#ae81ff">2</span>
-       <span style="color:#ae81ff">19</span> |       <span style="color:#ae81ff">2487</span> |     <span style="color:#ae81ff">554</span> | 2017-01-01 00:05:59 |          <span style="color:#ae81ff">3</span>
-       <span style="color:#ae81ff">20</span> |       <span style="color:#ae81ff">2890</span> |     <span style="color:#ae81ff">960</span> | 2017-01-01 00:06:40 |          <span style="color:#ae81ff">1</span>
-       <span style="color:#ae81ff">20</span> |       <span style="color:#ae81ff">2889</span> |     <span style="color:#ae81ff">789</span> | 2017-01-01 00:06:39 |          <span style="color:#ae81ff">2</span>
-       <span style="color:#ae81ff">20</span> |       <span style="color:#ae81ff">2888</span> |     <span style="color:#ae81ff">382</span> | 2017-01-01 00:06:38 |          <span style="color:#ae81ff">3</span>
-<span style="color:#f92672">(</span><span style="color:#ae81ff">59</span> rows<span style="color:#f92672">)</span>
-</code></pre></div><p>Nice!</p>
-<h2 id="resources">Resources</h2>
-<ul>
-<li><a href="https://blog.jooq.org/2014/08/12/the-difference-between-row_number-rank-and-dense_rank/">https://blog.jooq.org/2014/08/12/the-difference-between-row_number-rank-and-dense_rank/</a></li>
-</ul>
-
-                
-<div id="disqus_thread"></div>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-
-s.src = '//chischaschos-rocks.disqus.com/embed.js';
-
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-
-            </div>
-        </div>
-  </div>
-    <div class="pure-u-1-24 pure-u-md-1-6"></div>
-</div>
-
-<div class="footer pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-    <div class="pure-u-11-12 pure-u-md-5-8">
-        <div class="footer-content">
-		  <div class="pure-menu pure-menu-horizontal">
-              <ul>
-			      
-                  <li class="pure-menu-heading" id="foot-name">emmanuel delgado:</li>
-                  
-				  
-                  
-          
-                  
-                  <li class="pure-menu-item">
-                      <a href="https://github.com/chischaschos" class="pure-menu-link">GitHub</a>
-                  </li>
-                  
-          
-                  
-                  <li class="pure-menu-item">
-                      <a href="https://www.linkedin.com/in/emmanueldelgado" class="pure-menu-link">LinkedIn</a>
-                  </li>
-                  
-          
-                  
-          
-                  
-                  <li class="pure-menu-item">
-                      <a href="https://twitter.com/chischaschos" class="pure-menu-link">Twitter</a>
-                  </li>
-                  
-          
-              </ul>
-              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
-          </div>
-		  
-		</div>
-	  </div>
-      <div class="pure-u-1-24 pure-u-md-1-6"></div>
-</div>
-
-
-<script src="//chischaschos.github.io/js/jquery.min.js" type="text/javascript"></script>
-<script src="//chischaschos.github.io/js/jquery.timeago.js" type="text/javascript"></script>
-<script type="text/javascript">
-  $(function(){
-    $("time.timeago").timeago();
-  })
-  $("#toggle-btn").click(function(){
-    $("#toggle-content").toggle();
-    if($(this).html() === "☰") {
-        $(this).html("X")
-    } else {
-        $(this).html("☰")
-    }
-  });
-  $(window).resize(function(){
-    if(window.innerWidth > 768) {
-      $(".desktop").removeAttr("style");
-    }
-  });
-</script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-21486770-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-</body>
-</html>
-
+       <span style=color:#ae81ff>19</span> |       <span style=color:#ae81ff>2489</span> |     <span style=color:#ae81ff>284</span> | 2017-01-01 00:06:01 |          <span style=color:#ae81ff>1</span>
+       <span style=color:#ae81ff>19</span> |       <span style=color:#ae81ff>2488</span> |     <span style=color:#ae81ff>900</span> | 2017-01-01 00:06:00 |          <span style=color:#ae81ff>2</span>
+       <span style=color:#ae81ff>19</span> |       <span style=color:#ae81ff>2487</span> |     <span style=color:#ae81ff>554</span> | 2017-01-01 00:05:59 |          <span style=color:#ae81ff>3</span>
+       <span style=color:#ae81ff>20</span> |       <span style=color:#ae81ff>2890</span> |     <span style=color:#ae81ff>960</span> | 2017-01-01 00:06:40 |          <span style=color:#ae81ff>1</span>
+       <span style=color:#ae81ff>20</span> |       <span style=color:#ae81ff>2889</span> |     <span style=color:#ae81ff>789</span> | 2017-01-01 00:06:39 |          <span style=color:#ae81ff>2</span>
+       <span style=color:#ae81ff>20</span> |       <span style=color:#ae81ff>2888</span> |     <span style=color:#ae81ff>382</span> | 2017-01-01 00:06:38 |          <span style=color:#ae81ff>3</span>
+<span style=color:#f92672>(</span><span style=color:#ae81ff>59</span> rows<span style=color:#f92672>)</span>
+</code></pre></div><p>Nice!</p><h2 id=resources>Resources</h2><ul><li><a href=https://blog.jooq.org/2014/08/12/the-difference-between-row_number-rank-and-dense_rank/>https://blog.jooq.org/2014/08/12/the-difference-between-row_number-rank-and-dense_rank/</a></li></ul><div id=disqus_thread></div><script>(function(){var d=document,s=d.createElement('script');s.src='//chischaschos-rocks.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript></div></div></div><div class="pure-u-1-24 pure-u-md-1-6"></div></div><div class="footer pure-g"><div class="pure-u-1-24 pure-u-md-5-24"></div><div class="pure-u-11-12 pure-u-md-5-8"><div class=footer-content><div class="pure-menu pure-menu-horizontal"><ul><li class=pure-menu-heading id=foot-name>emmanuel delgado:</li><li class=pure-menu-item><a href=https://github.com/chischaschos class=pure-menu-link>GitHub</a></li><li class=pure-menu-item><a href=https://www.linkedin.com/in/emmanueldelgado class=pure-menu-link>LinkedIn</a></li><li class=pure-menu-item><a href=https://twitter.com/chischaschos class=pure-menu-link>Twitter</a></li></ul><a href=# class="pure-menu-heading pull-right" id=gototop-btn>↑↑</a></div></div></div><div class="pure-u-1-24 pure-u-md-1-6"></div></div><script src=//chischaschos.github.io/js/jquery.min.js type=text/javascript></script><script src=//chischaschos.github.io/js/jquery.timeago.js type=text/javascript></script><script type=text/javascript>$(function(){$("time.timeago").timeago();})
+$("#toggle-btn").click(function(){$("#toggle-content").toggle();if($(this).html()==="☰"){$(this).html("X")}else{$(this).html("☰")}});$(window).resize(function(){if(window.innerWidth>768){$(".desktop").removeAttr("style");}});</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-21486770-1','auto');ga('send','pageview');</script></body></html>
